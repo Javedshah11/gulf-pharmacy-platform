@@ -1,0 +1,36 @@
+{
+  "name": "gulf-pharmacy-platform",
+  "private": true,
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "dev:web": "pnpm --filter @gulf/web dev",
+    "dev:api": "pnpm --filter @gulf/api dev",
+    "build": "pnpm -r build",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r typecheck && tsc --noEmit -p tsconfig.tools.json",
+    "test": "pnpm --filter @gulf/api test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:up": "docker compose --env-file infra/.env -f infra/docker-compose.yml up -d --wait",
+    "db:down": "docker compose --env-file infra/.env -f infra/docker-compose.yml down",
+    "db:generate": "pnpm --filter @gulf/database generate",
+    "db:migrate": "pnpm --filter @gulf/database migrate",
+    "db:seed": "pnpm --filter @gulf/database seed",
+    "auth:bootstrap": "pnpm --filter @gulf/api bootstrap",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^24.10.0",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.48.0"
+  }
+}

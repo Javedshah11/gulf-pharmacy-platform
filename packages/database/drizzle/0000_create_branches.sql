@@ -1,0 +1,21 @@
+CREATE TABLE "branches" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"name_en" varchar(160) NOT NULL,
+	"name_ar" varchar(160) NOT NULL,
+	"slug" varchar(120) NOT NULL,
+	"address_en" text NOT NULL,
+	"address_ar" text NOT NULL,
+	"city" varchar(100) NOT NULL,
+	"district" varchar(100) NOT NULL,
+	"country" varchar(2) DEFAULT 'SA' NOT NULL,
+	"phone" varchar(30) NOT NULL,
+	"whatsapp_url" text NOT NULL,
+	"maps_url" text NOT NULL,
+	"is_active" boolean DEFAULT true NOT NULL,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
+	CONSTRAINT "branches_slug_unique" UNIQUE("slug"),
+	CONSTRAINT "branches_slug_format" CHECK ("branches"."slug" ~ '^[a-z0-9]+(-[a-z0-9]+)*$'),
+	CONSTRAINT "branches_country_format" CHECK ("branches"."country" ~ '^[A-Z]{2}$'),
+	CONSTRAINT "branches_https_urls" CHECK ("branches"."whatsapp_url" LIKE 'https://%' AND "branches"."maps_url" LIKE 'https://%')
+);

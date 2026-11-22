@@ -1,0 +1,26 @@
+{
+  "name": "@gulf/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predev": "pnpm --filter @gulf/shared build",
+    "dev": "next dev --hostname 127.0.0.1 --port 3000",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3000",
+    "typecheck": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@gulf/shared": "workspace:*",
+    "next": "^16.4.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/noto-sans-arabic": "^5.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "tailwindcss": "^4.1.17",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0"
+  }
+}

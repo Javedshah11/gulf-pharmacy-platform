@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1795373853392,
+      "tag": "0000_create_branches",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795374894238,
+      "tag": "0001_staff_authentication",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795376444138,
+      "tag": "0002_public_branch_profiles",
+      "breakpoints": true
+    }
+  ]
+}

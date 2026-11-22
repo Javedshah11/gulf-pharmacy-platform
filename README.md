@@ -1,340 +1,142 @@
-# ⚕️ GULF PHARMACY
+ <div align="center">
 
+![Gulf Pharmacy Header](docs/assets/readme-header.svg)
+
+# ⚕ GULF PHARMACY
 ### صيدلية الخليج
 
-**Premium Bilingual Pharmacy Platform | Digital Healthcare Experience | Secure Staff Administration**
+**PREMIUM DIGITAL HEALTHCARE PLATFORM**
 
-*Your Health. Our Priority.*
+*Engineering a Smarter Pharmacy Experience.*
 
----
+![Next.js](https://img.shields.io/badge/Next.js-16-063E3B?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-08796D?style=for-the-badge&logo=typescript&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-REST_API-063E3B?style=for-the-badge&logo=nestjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-08796D?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-7-063E3B?style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-08796D?style=for-the-badge&logo=docker&logoColor=white)
 
-**Next.js 16 · React · TypeScript · NestJS · PostgreSQL 17 · Redis 7 · Docker · Tailwind CSS**
+**Phase 1: Complete** · **Phase 2: Complete** · **Phase 3: Planned**
 
-**Project Status:** Phase 1 Complete · Phase 2 Complete · Phase 3 Planned
-
-**Location:** Ar Rabi, Dammam, Saudi Arabia  
-**Contact:** Dr. Fahad Badshah  
-**WhatsApp:** [+966 59 771 3349](https://wa.me/966597713349)  
-**Google Maps:** [Find Gulf Pharmacy](https://goo.gl/maps/mhWvzaZhw956to9o8?g_st=aw)
-
----
-
-## 🌟 Welcome to Gulf Pharmacy
-
-Gulf Pharmacy is a modern, bilingual pharmacy platform designed to connect customers with their local pharmacy while providing secure, scalable tools for staff administration.
-
-The project combines a premium healthcare brand experience with a production-oriented software architecture.
-
-Our vision is to create a platform that delivers:
-
-- ✨ Beautiful, responsive customer experiences
-- 🌍 Seamless English and Arabic accessibility
-- 💬 Direct WhatsApp customer communication
-- 📍 Convenient pharmacy discovery and navigation
-- 🔐 Enterprise-grade staff authentication
-- 🏢 Secure branch administration
-- 📊 Scalable content management and operational tools
-- 🚀 High-performance web engineering
-
-The platform begins with the confirmed Gulf Pharmacy branch in Ar Rabi, Dammam.
-
-**Our mission:** Make pharmacy information, communication, and access simpler, faster, and more convenient.
+</div>
 
 ---
 
-# 🎨 01 — Premium Brand Experience
+## ✨ Overview
 
-## Visual Identity
+**Gulf Pharmacy** is a modern bilingual digital pharmacy platform built with enterprise-oriented engineering practices.
 
-The Gulf Pharmacy interface follows a modern healthcare design language featuring emerald green, deep teal, soft mint, elegant typography, and carefully designed motion.
+The project combines a secure administrative foundation with a roadmap for premium customer-facing experiences, advanced visual design, and scalable content management.
 
-| Design Token | Color | Purpose |
+### Core Principles
+
+- 🎨 Premium healthcare user experience
+- 🌐 Bilingual English and Arabic interface
+- 🔐 Secure authentication and authorization
+- 🏢 Branch-aware administration
+- ⚡ High-performance architecture
+- 📱 Mobile-first responsive design
+- 🧩 Modular and maintainable codebase
+- 🚀 Production-oriented development
+
+---
+
+## 🎨 Design System
+
+The platform follows a sophisticated emerald-green visual identity.
+
+| Color | Hex | Usage |
 |---|---|---|
-| Deep Teal | `#063E3B` | Primary brand backgrounds |
-| Emerald Green | `#08796D` | Buttons and interactive elements |
-| Soft Mint | `#DFF5EC` | Cards, highlights, and accents |
-| Pearl White | `#F7FAF8` | Main page background |
-| Pure White | `#FFFFFF` | Surfaces and typography |
-| Dark Text | `#123D39` | Headings and content |
+| 🟩 Deep Teal | `#063E3B` | Primary brand |
+| 🟢 Emerald Green | `#08796D` | Interactive components |
+| 🌿 Soft Mint | `#DFF5EC` | Cards and accents |
+| ⚪ Pearl White | `#F7FAF8` | Background |
+| ⚫ Dark Teal | `#123D39` | Text |
 
-### Design Philosophy
+### Planned Visual Experience
 
-**Premium. Minimal. Human-centered. Accessible.**
-
-Every interface should combine visual sophistication with functional clarity.
-
-The design system emphasizes generous whitespace, strong visual hierarchy, premium healthcare imagery, elegant gradients, smooth transitions, and responsive layouts.
-
-### Future Visual Features
-
-- Cinematic homepage hero
-- Premium pharmacy photography
-- Animated brand storytelling
-- Glassmorphism accents
-- Smooth scroll interactions
+- Cinematic hero sections
+- Premium healthcare photography
+- Smooth scroll animations
+- Animated navigation
 - Interactive category cards
-- High-quality campaign banners
-- Animated customer chat widget
-- Elegant page transitions
-- Responsive navigation
-- Dark teal visual sections
-- Arabic right-to-left layouts
-- Accessibility-aware motion
-
-Animations must remain performant and respect reduced-motion preferences.
+- Glassmorphism details
+- Responsive image galleries
+- Micro-interactions
+- Elegant loading states
+- Reduced-motion accessibility
+- Full Arabic RTL support
 
 ---
 
-# 🖥️ 02 — Premium Customer Website
-
-**Status: Phase 3 Planned**
-
-The public website will provide a visually engaging experience designed to encourage customer enquiries and pharmacy visits.
-
-## Homepage
-
-The homepage will feature a premium hero section with strong typography, photography, and prominent contact actions.
-
-**Primary headline:**
-
-> Your Health Deserves Better Care.
-
-**Arabic headline:**
-
-> صحتك تستحق رعاية أفضل
-
-**Primary actions:**
-
-- Chat on WhatsApp
-- Get Directions
-- Explore Pharmacy Information
-
-### Homepage Sections
-
-| Section | Description |
-|---|---|
-| Hero | Premium brand introduction |
-| About | Gulf Pharmacy information and story |
-| Categories | Visual product-category discovery |
-| Campaigns | Verified, approved promotional content |
-| Gallery | Authentic pharmacy photography |
-| Health Information | Reviewed educational content |
-| Customer Support | Guided bilingual assistance |
-| FAQ | Frequently asked questions |
-| Contact | WhatsApp, telephone, and Google Maps |
-| Footer | Business details and navigation |
-
-Product categories are discovery concepts until the actual inventory is confirmed.
-
-No unverified stock, prices, promotions, opening hours, customer reviews, or additional live branches will be displayed.
-
----
-
-# 💬 03 — Intelligent Customer Assistance
-
-**Status: Planned**
-
-A floating customer-support assistant will help visitors quickly access pharmacy information.
-
-### Customer Assistance Capabilities
-
-**Bilingual Communication**
-
-Support English and Arabic interactions.
-
-**Pharmacy Information**
-
-Answer verified questions about location, contact details, and published operating hours.
-
-**Product Enquiries**
-
-Allow customers to enquire about products without falsely claiming live inventory availability.
-
-**WhatsApp Handoff**
-
-Transfer enquiries to the pharmacy's official WhatsApp contact.
-
-**Guided FAQ**
-
-Provide structured answers to common customer questions.
-
-### Example Conversation
-
-**Customer:** Hello, do you have this product?
-
-**Assistant:** Welcome to Gulf Pharmacy! Our team can confirm current availability and pricing. Would you like to contact us on WhatsApp?
-
-**Customer:** Yes.
-
-**Assistant:** You can send your enquiry directly to our pharmacy team.
-
-**WhatsApp:** https://wa.me/966597713349
-
-### Safety Requirements
-
-The assistant must not diagnose illnesses, prescribe medication, invent prices, or claim products are available without verified inventory data.
-
-It must clearly identify itself as automated assistance.
-
-Future AI-powered functionality will require additional privacy, clinical-safety, and quality controls.
-
----
-
-# 🏗️ 04 — System Architecture
-
-The platform uses a modular monorepo architecture designed for maintainability, security, and future expansion.
-
-### Architecture Overview
+## 🏗 System Architecture
 
 ```mermaid
 flowchart TD
-    A["Customer / Staff Browser"]
-    B["Next.js Application"]
-    C["NestJS REST API"]
-    D["Authentication & Authorization"]
-    E["Business Services"]
-    F[("PostgreSQL 17")]
-    G[("Redis 7")]
-
-    A --> B
-    B --> C
-    C --> D
-    C --> E
-    D --> F
-    D --> G
+    A["Customer / Staff Browser"] --> B["Next.js Frontend"]
+    B --> C["NestJS REST API"]
+    C --> D["Authentication & Authorization"]
+    C --> E["Business Services"]
+    D --> F[("PostgreSQL 17")]
+    D --> G[("Redis 7")]
     E --> F
+
+    style A fill:#DFF5EC,stroke:#08796D,color:#063E3B
+    style B fill:#08796D,stroke:#063E3B,color:#FFFFFF
+    style C fill:#063E3B,stroke:#08796D,color:#FFFFFF
+    style D fill:#DFF5EC,stroke:#08796D,color:#063E3B
+    style E fill:#DFF5EC,stroke:#08796D,color:#063E3B
+    style F fill:#08796D,stroke:#063E3B,color:#FFFFFF
+    style G fill:#08796D,stroke:#063E3B,color:#FFFFFF
 ```
 
-### Technology Stack
+---
+
+## 🛠 Technology Stack
 
 | Layer | Technology |
 |---|---|
 | Runtime | Node.js 24 LTS |
 | Package Manager | pnpm Workspaces |
-| Frontend | Next.js App Router |
-| UI Library | React |
+| Frontend | Next.js App Router, React |
 | Language | Strict TypeScript |
 | Styling | Tailwind CSS |
 | Backend | NestJS REST API |
 | Database | PostgreSQL 17 |
-| ORM / Migrations | Drizzle |
-| Cache / Rate Limiting | Redis 7 |
+| ORM | Drizzle |
+| Cache | Redis 7 |
 | Infrastructure | Docker Compose |
 | Code Quality | ESLint, Prettier |
-| Languages | English, Arabic |
-| Typography | Locally bundled fonts |
-| Testing | Automated API, security, and browser tests |
+| Localization | English / Arabic |
+| Testing | Unit, integration, security, browser |
 
 ---
 
-# 🔐 05 — Secure Authentication & Administration
+## 🔐 Authentication & Security
 
-**Status: Phase 2 Implemented**
+**Phase 2 — Implemented and Locally Verified**
 
-The staff administration platform provides controlled access to protected operational functionality.
+The platform provides secure staff authentication and branch-aware administration.
 
-### Authentication Security
+### Implemented Features
 
 - Argon2id password hashing
 - Hashed server-managed sessions
-- Secure HTTP cookie configuration
-- CSRF defenses
-- Redis-backed rate limiting
-- Session expiration and revocation
-- Protected administrative routes
+- Secure cookie configuration
+- CSRF protection
+- Redis rate limiting
+- Role-based access control
+- Branch membership isolation
+- Session revocation
 - Transactional audit logging
+- Protected administrative routes
+- Interactive Super Admin bootstrap
 
-### Authorization
-
-The platform supports role-based access control and branch membership restrictions.
-
-**Super Admin**
-
-Responsible for authorized system-wide administration and staff-access management.
-
-**Branch Admin**
-
-Manages permitted resources for assigned branches.
-
-**Staff Access**
-
-Controlled through administrative assignment rather than public registration.
-
-### Security Principles
-
-- Least-privilege access
-- Server-side authorization
-- Branch isolation
-- Secure session handling
-- Auditable administrative operations
-- No public staff registration
-- No default administrator credentials
+No public staff registration or default credentials are provided.
 
 ---
 
-# 🏢 06 — Branch Management
-
-**Status: Foundation Implemented**
-
-The platform currently includes one confirmed branch.
-
-### Gulf Pharmacy — Dammam
-
-| Field | Information |
-|---|---|
-| Name | Gulf Pharmacy |
-| Arabic | صيدلية الخليج |
-| Street | Street 8 |
-| District | Ar Rabi |
-| City | Dammam |
-| Postal Code | 32241 |
-| Country | Saudi Arabia |
-| Contact | Dr. Fahad Badshah |
-| Phone | +966 59 771 3349 |
-
-**Location:** [Open Google Maps](https://goo.gl/maps/mhWvzaZhw956to9o8?g_st=aw)
-
-The database architecture supports future branch management, but additional branches must not be displayed publicly until confirmed.
-
-Repeated database seeding preserves administrator changes to existing records.
-
----
-
-# 🗄️ 07 — Database Architecture
-
-The project uses PostgreSQL 17 with version-controlled Drizzle migrations.
-
-### Core Phase 2 Tables
-
-| Table | Responsibility |
-|---|---|
-| `staff_users` | Staff identity and authentication |
-| `branch_memberships` | Staff-to-branch access |
-| `auth_sessions` | Secure session management |
-| `admin_audit_logs` | Administrative audit history |
-
-The original foundation migration and Dammam branch record are preserved.
-
-### Migration Principles
-
-1. Use additive, version-controlled migrations.
-2. Never silently destroy existing records.
-3. Preserve historical migrations.
-4. Maintain referential integrity.
-5. Apply schema changes through reviewed migration files.
-6. Keep database configuration environment-specific.
-
-**Existing local PostgreSQL port:** `55432`
-
-**Fresh-checkout template recommendation:** `5433`
-
-Do not overwrite an existing environment configuration.
-
----
-
-# 📁 08 — Repository Structure
-
-The project follows a pnpm monorepo layout.
+## 📁 Project Structure
 
 ```text
 gulf-pharmacy/
@@ -351,15 +153,12 @@ gulf-pharmacy/
 │       │   ├── auth/
 │       │   ├── admin/
 │       │   └── cli/
-│       │       └── bootstrap.ts
 │       └── test/
 │
 ├── packages/
 │   └── database/
 │       ├── src/
-│       │   └── schema.ts
 │       └── drizzle/
-│           └── 0001_staff_authentication.sql
 │
 ├── infra/
 │
@@ -367,45 +166,38 @@ gulf-pharmacy/
 │   └── browser/
 │
 ├── docs/
+│   ├── assets/
 │   ├── SETUP.md
 │   ├── ARCHITECTURE.md
 │   ├── AUTHENTICATION.md
-│   ├── FOLDER_STRUCTURE.md
-│   ├── DEPENDENCIES.md
 │   ├── TESTING.md
 │   ├── DEVELOPMENT_PHASES.md
-│   ├── VALIDATION.md
 │   └── PHASE_2_VALIDATION.md
 │
 └── README.md
 ```
 
-This is a simplified architectural tree. Consult `docs/FOLDER_STRUCTURE.md` for the complete existing repository structure.
-
 ---
 
-# ⚙️ 09 — Local Development Setup
+## 🚀 Quick Start
 
-## Prerequisites
-
-Install the following:
+### Requirements
 
 - Node.js 24 LTS
 - pnpm
 - Docker Desktop
 - Git
 - PowerShell
-- Visual Studio Code or another compatible editor
 
-## Step 1 — Install Dependencies
+### Installation
 
 ```powershell
 pnpm install
 ```
 
-## Step 2 — Configure Environment Files
+### Environment Configuration
 
-For the first setup only:
+On first setup:
 
 ```powershell
 Copy-Item infra/.env.example infra/.env
@@ -414,328 +206,174 @@ Copy-Item apps/web/.env.example apps/web/.env
 Copy-Item packages/database/.env.example packages/database/.env
 ```
 
-Review environment values before continuing.
+Do not overwrite existing environment files.
 
-**Important:** Do not overwrite existing `.env` files containing local customizations or secrets.
-
-## Step 3 — Start Infrastructure
-
-Ensure Docker Desktop is running.
+### Start Infrastructure
 
 ```powershell
 pnpm db:up
 ```
 
-## Step 4 — Apply Migrations
+### Database Initialization
 
 ```powershell
 pnpm db:migrate
-```
-
-## Step 5 — Seed Confirmed Data
-
-```powershell
 pnpm db:seed
 ```
 
-## Step 6 — Start Development
+### Start Development
 
 ```powershell
 pnpm dev
 ```
 
-### Local URLs
-
-| Service | URL |
-|---|---|
-| Frontend | http://localhost:3000 |
-| API | http://localhost:4000/api |
-| Liveness | http://localhost:4000/api/health |
-| Dependency Readiness | http://localhost:4000/api/health/dependencies |
-| Branches API | http://localhost:4000/api/branches |
-| Staff Login | http://localhost:3000/admin/login |
-
----
-
-# 👤 10 — Super Admin Bootstrap
-
-After applying migrations, create the initial Super Admin.
+### Create Initial Administrator
 
 ```powershell
 pnpm auth:bootstrap
 ```
 
-The interactive command securely requests the initial administrator credentials.
-
-Passwords are entered through hidden terminal input.
-
-The bootstrap operation is designed not to create another initial Super Admin when one already exists.
-
-There are no default credentials.
-
-See `docs/AUTHENTICATION.md` for the complete authentication and permissions model.
-
 ---
 
-# 🧪 11 — Testing & Validation
+## 🧪 Testing & Quality Assurance
 
-Quality assurance is an essential part of the project.
-
-### Automated Testing
-
-```powershell
-pnpm test
-```
-
-Runs foundation tests and security tests using disposable PostgreSQL and Redis databases.
-
-### TypeScript Validation
-
-```powershell
-pnpm typecheck
-```
-
-### ESLint
-
-```powershell
-pnpm lint
-```
-
-### Production Build
-
-```powershell
-pnpm build
-```
-
-### Browser Testing
-
-```powershell
-pnpm test:browser
-```
-
-Runs real Chrome workflows for public and administrative interfaces at desktop, tablet, and mobile sizes.
-
-The frontend must be running before executing the browser suite.
-
-### Formatting Validation
-
-```powershell
-pnpm format:check
-```
-
-### Quality Targets for Phase 3
-
-| Category | Target |
+| Command | Purpose |
 |---|---|
-| Lighthouse Performance | 90+ |
+| `pnpm build` | Production build |
+| `pnpm lint` | ESLint validation |
+| `pnpm typecheck` | Strict TypeScript checks |
+| `pnpm test` | Automated tests |
+| `pnpm test:browser` | Browser regression testing |
+| `pnpm format:check` | Formatting validation |
+
+### Future Quality Targets
+
+| Category | Goal |
+|---|---|
+| Performance | Lighthouse 90+ |
 | Accessibility | WCAG 2.2 AA |
-| SEO | 90+ Lighthouse target |
-| Responsive Design | Mobile, tablet, desktop |
-| Motion | Reduced-motion support |
-| Type Safety | Strict TypeScript |
-| Security | No regression of Phase 2 controls |
-| Browser Testing | Critical workflows verified |
+| SEO | Lighthouse 90+ |
+| Responsive | Desktop, tablet, mobile |
+| Security | Preserve Phase 2 controls |
+| Localization | Complete English and Arabic |
+| Animation | Smooth, accessible motion |
 
-These are future acceptance targets, not measured results.
-
----
-
-# 🚀 12 — Development Roadmap
-
-## Phase 1 — Platform Foundation
-
-**Status: Completed**
-
-Established the monorepo architecture, frontend, backend, database integration, branch foundation, and development infrastructure.
-
-## Phase 2 — Staff Authentication & Administration
-
-**Status: Completed and Locally Verified**
-
-Implemented secure staff authentication, administrative access, branch membership controls, audit logging, and regression tests.
-
-## Phase 3 — Premium Digital Experience
-
-**Status: Planned — Not Yet Implemented**
-
-### Phase 3A — Premium Frontend
-
-- Advanced design system
-- Animated homepage
-- Responsive navigation
-- Premium typography
-- Brand imagery
-- Motion design
-- Accessible components
-
-### Phase 3B — Public Website
-
-- About page
-- Product-category discovery
-- Pharmacy gallery
-- Contact and directions
-- English/Arabic localization
-- SEO foundation
-
-### Phase 3C — Customer Engagement
-
-- Floating chat assistant
-- WhatsApp handoff
-- Guided FAQs
-- Enquiry workflows
-- Privacy-conscious conversion tracking
-
-### Phase 3D — Content Administration
-
-- Banner management
-- Gallery management
-- Approved promotional content
-- FAQ management
-- Branch information updates
-- Audited administrative actions
-
-### Phase 3E — Production Readiness
-
-- Browser regression testing
-- Security validation
-- Performance optimization
-- Accessibility auditing
-- SEO validation
-- Deployment configuration
+These are planned quality targets, not measured production results.
 
 ---
 
-# 📊 13 — Available Development Commands
+## 🗺 Development Roadmap
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Start both applications |
-| `pnpm dev:web` | Start frontend |
-| `pnpm dev:api` | Start backend |
-| `pnpm build` | Build packages and applications |
-| `pnpm lint` | Run ESLint |
-| `pnpm typecheck` | Run TypeScript validation |
-| `pnpm test` | Run automated tests |
-| `pnpm test:browser` | Run browser workflows |
-| `pnpm auth:bootstrap` | Create initial Super Admin |
-| `pnpm format` | Format source code |
-| `pnpm format:check` | Validate formatting |
-| `pnpm db:up` | Start infrastructure |
-| `pnpm db:down` | Stop infrastructure |
-| `pnpm db:generate` | Generate migrations |
-| `pnpm db:migrate` | Apply migrations |
-| `pnpm db:seed` | Seed confirmed branch data |
+### ✅ Phase 1 — Foundation
 
----
+**Completed**
 
-# 🌐 14 — SEO & Digital Growth
+- Monorepo architecture
+- Frontend and backend setup
+- Database integration
+- Infrastructure configuration
+- Initial branch foundation
+- Development tooling
 
-The premium public website will be optimized for discoverability and customer engagement.
+### ✅ Phase 2 — Secure Administration
 
-### Planned SEO Features
+**Completed and Locally Verified**
 
-- Semantic HTML
-- Structured metadata
-- Open Graph previews
-- XML sitemap
-- Canonical URLs
-- Optimized image loading
-- Local business structured data
-- English and Arabic page metadata
-- Search-friendly routing
-- Core Web Vitals optimization
-
-### Customer Engagement Strategy
-
-The website should encourage meaningful actions rather than relying on intrusive advertising.
-
-Primary conversion goals:
-
-1. WhatsApp enquiries
-2. Google Maps direction requests
-3. Phone contact
-4. Product-category enquiries
-5. Engagement with approved informational content
-
-Any analytics must respect applicable privacy and consent requirements.
-
----
-
-# 🛡️ 15 — Privacy, Security & Compliance
-
-Gulf Pharmacy handles customer-facing healthcare information and staff administration functionality.
-
-Security and trust must remain central to the platform.
-
-### Security Requirements
-
+- Staff authentication
 - Secure session management
 - Role-based authorization
-- Server-side permission enforcement
-- Branch data isolation
-- Rate limiting
-- CSRF protection
-- Audit logging
-- Secure environment configuration
-- Dependency monitoring
-- Safe error handling
+- Branch membership controls
+- Administrative audit logging
+- Security and browser regression tests
 
-### Customer Privacy
+### ⏳ Phase 3 — Premium Digital Experience
 
-Avoid unnecessary collection of medical or personally identifiable information.
+**Planned**
 
-Do not request prescriptions or sensitive health records through an unsecured general-purpose chat.
+#### 3A — Premium UI
 
-### Advertising Integrity
+- Animated homepage
+- Advanced design system
+- Responsive navigation
+- Brand imagery
+- Elegant transitions
 
-Only publish verified business information and approved promotional claims.
+#### 3B — Public Website
 
-No fabricated testimonials, certifications, medicine availability, discounts, or operating hours.
+- About and information pages
+- Category discovery
+- Image gallery
+- Contact interface
+- Full bilingual support
 
-Medicine and healthcare advertising must be reviewed against applicable Saudi regulatory requirements before publication.
+#### 3C — Customer Engagement
+
+- Guided customer chat
+- FAQ assistant
+- Enquiry workflows
+- Customer communication handoff
+
+#### 3D — Content Management
+
+- Banner administration
+- Gallery management
+- Approved campaign content
+- FAQ management
+- Public content publishing
+
+#### 3E — Production Readiness
+
+- Security regression tests
+- Performance optimization
+- Accessibility validation
+- SEO implementation
+- Deployment preparation
 
 ---
 
-# 📚 16 — Project Documentation
-
-Detailed technical documentation is maintained in the `docs/` directory.
+## 📚 Documentation
 
 | Document | Description |
 |---|---|
-| `SETUP.md` | Windows setup and troubleshooting |
-| `ARCHITECTURE.md` | System architecture |
-| `AUTHENTICATION.md` | Authentication and authorization |
-| `FOLDER_STRUCTURE.md` | Complete repository guide |
-| `DEPENDENCIES.md` | Installed dependencies |
-| `TESTING.md` | Testing procedures |
-| `DEVELOPMENT_PHASES.md` | Development roadmap |
-| `VALIDATION.md` | Phase 1 validation |
-| `PHASE_2_VALIDATION.md` | Phase 2 verification |
+| `docs/SETUP.md` | Installation and environment setup |
+| `docs/ARCHITECTURE.md` | System architecture |
+| `docs/AUTHENTICATION.md` | Authentication and permissions |
+| `docs/FOLDER_STRUCTURE.md` | Complete source tree |
+| `docs/DEPENDENCIES.md` | Installed dependencies |
+| `docs/TESTING.md` | Testing procedures |
+| `docs/DEVELOPMENT_PHASES.md` | Development roadmap |
+| `docs/VALIDATION.md` | Phase 1 validation |
+| `docs/PHASE_2_VALIDATION.md` | Phase 2 verification |
 
 ---
 
-# 💚 17 — Our Commitment
+## 🌟 Engineering Philosophy
 
-**Gulf Pharmacy is more than a website.**
+> **Beautiful experiences. Secure architecture. Sustainable engineering.**
 
-It is a long-term digital foundation for a modern neighborhood pharmacy, combining a distinctive brand experience with secure engineering and customer-friendly communication.
+Gulf Pharmacy is designed around four principles:
 
-The goal is to create a platform that is:
+**Experience First** — Create intuitive, accessible, and visually refined interfaces.
 
-**Beautiful to explore. Easy to use. Secure to operate. Built to evolve.**
+**Security by Design** — Protect administrative access and enforce authorization at every layer.
+
+**Scalable Architecture** — Build modular systems that support future growth.
+
+**Continuous Improvement** — Validate every development phase through testing and documentation.
 
 ---
 
-### ⚕️ GULF PHARMACY | صيدلية الخليج
+<div align="center">
 
-**Your Health. Our Priority.**
+![Gulf Pharmacy Footer](docs/assets/readme-footer.svg)
 
-📍 Street 8, Ar Rabi, Dammam 32241, Saudi Arabia
+### ⚕ GULF PHARMACY
+**صيدلية الخليج**
 
-📱 WhatsApp: [+966 59 771 3349](https://wa.me/966597713349)
+*Engineering a Smarter Pharmacy Experience.*
 
-🗺️ [Get Directions](https://goo.gl/maps/mhWvzaZhw956to9o8?g_st=aw)
-
-**Built with modern web technologies. Designed for a better pharmacy experience.**
+**Built with Next.js · NestJS · TypeScript · PostgreSQL · Redis**
 
 © 2026 Gulf Pharmacy. All rights reserved.
+
+</div>

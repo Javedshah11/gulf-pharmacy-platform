@@ -19,6 +19,7 @@ function StaffWorkspace() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [busy, setBusy] = useState(false);
+  const [staffRole, setStaffRole] = useState('BRANCH_ADMIN');
   const [target, setTarget] = useState<{
     user: StaffAccount;
     kind: 'status' | 'memberships';
@@ -41,8 +42,8 @@ function StaffWorkspace() {
         eyebrow={t('CENTRAL ADMINISTRATION', 'الإدارة المركزية')}
         title={t('Staff & access', 'الموظفون والصلاحيات')}
         description={t(
-          'Create Branch Admin accounts and give each person access only to the branches they manage.',
-          'إنشاء حسابات مديري الفروع وتحديد صلاحيات الوصول لكل موظف.',
+          'Create staff accounts with a specific role and branch access.',
+          'إنشاء حسابات الموظفين بدور محدد وصلاحيات فروع محددة.',
         )}
       />
       {error && <ErrorState message={error} />}{' '}
@@ -52,7 +53,11 @@ function StaffWorkspace() {
         </p>
       )}
       <section className="admin-panel">
-        <h2>{t('Create a Branch Admin', 'إنشاء مدير فرع')}</h2>
+        <h2>
+          {staffRole === 'BRANCH_ADMIN'
+            ? t('Create a Branch Admin', 'إنشاء مدير فرع')
+            : t('Create Academy staff', 'إنشاء موظف للأكاديمية')}
+        </h2>
         <form
           onSubmit={async (event) => {
             event.preventDefault();
@@ -62,20 +67,30 @@ function StaffWorkspace() {
             setError('');
             setSuccess('');
             try {
-              await request('/admin/users', {
-                method: 'POST',
-                body: JSON.stringify({
-                  username: values.get('username'),
-                  displayName: values.get('displayName'),
-                  password: values.get('password'),
-                  branchIds: values.getAll('branchIds'),
-                }),
-              });
+              const role = String(values.get('role') ?? 'BRANCH_ADMIN');
+              await request(
+                role === 'BRANCH_ADMIN'
+                  ? '/admin/users'
+                  : '/admin/academy/staff',
+                {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    username: values.get('username'),
+                    displayName: values.get('displayName'),
+                    password: values.get('password'),
+                    branchIds: values.getAll('branchIds'),
+                    ...(role === 'BRANCH_ADMIN' ? {} : { role }),
+                  }),
+                },
+              );
               form.reset();
+              setStaffRole('BRANCH_ADMIN');
               setSuccess(
                 t(
-                  'Branch Admin created. Share credentials through a secure channel.',
-                  'تم إنشاء مدير الفرع. شاركوا بيانات الدخول عبر قناة آمنة.',
+                  role === 'BRANCH_ADMIN'
+                    ? 'Branch Admin created. Share credentials through a secure channel.'
+                    : 'Academy staff created. Share credentials through a secure channel.',
+                  'تم إنشاء الموظف. شاركوا بيانات الدخول عبر قناة آمنة.',
                 ),
               );
               await users.reload();
@@ -87,6 +102,21 @@ function StaffWorkspace() {
           }}
         >
           <div className="admin-form-grid">
+            <Field label={t('Role', 'الدور')}>
+              <select
+                name="role"
+                value={staffRole}
+                onChange={(e) => setStaffRole(e.target.value)}
+              >
+                <option value="BRANCH_ADMIN">
+                  {t('Branch Admin', 'مدير فرع')}
+                </option>
+                <option value="PHARMACIST">{t('Pharmacist', 'صيدلي')}</option>
+                <option value="MEDICAL_REVIEWER">
+                  {t('Medical Reviewer', 'مراجع طبي')}
+                </option>
+              </select>
+            </Field>
             <Field label={t('Full name', 'الاسم الكامل')}>
               <input
                 name="displayName"
@@ -141,7 +171,9 @@ function StaffWorkspace() {
           >
             {busy
               ? t('Creating…', 'جارٍ الإنشاء…')
-              : t('Create Branch Admin', 'إنشاء مدير الفرع')}
+              : staffRole === 'BRANCH_ADMIN'
+                ? t('Create Branch Admin', 'إنشاء مدير الفرع')
+                : t('Create staff account', 'إنشاء حساب موظف')}
           </button>
         </form>
       </section>
@@ -160,11 +192,15 @@ function StaffWorkspace() {
               <span className="admin-tag">
                 {user.role === 'SUPER_ADMIN'
                   ? t('Super Admin', 'مدير عام')
-                  : t('Branch Admin', 'مدير فرع')}{' '}
+                  : user.role === 'PHARMACIST'
+                    ? t('Pharmacist', 'صيدلي')
+                    : user.role === 'MEDICAL_REVIEWER'
+                      ? t('Medical Reviewer', 'مراجع طبي')
+                      : t('Branch Admin', 'مدير فرع')}{' '}
                 · {user.isActive ? t('Active', 'نشط') : t('Disabled', 'معطل')}
               </span>
             </div>
-            {user.role === 'BRANCH_ADMIN' ? (
+            {user.role !== 'SUPER_ADMIN' ? (
               <>
                 <form
                   key={user.branchIds.join(',')}

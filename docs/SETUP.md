@@ -83,3 +83,43 @@ For security tests, `pnpm test` now provisions uniquely named disposable databas
 - Dependency installation slow: allow the single pnpm install process to finish; avoid concurrent installs. Retry the install if registry downloads fail.
 
 After schema edits, run `pnpm db:generate`, inspect SQL and metadata, then `pnpm db:migrate`. Do not use schema push in place of versioned migrations.
+
+## Phase 3 website and SEO
+
+Preserve all existing .env files and PostgreSQL port 55432. Run pnpm install, pnpm db:up, and pnpm db:migrate from PowerShell. Migration 0002 extends public branch profiles without replacing previous migrations. The insert-only pnpm db:seed remains safe for later administrator edits. Run pnpm dev, then open http://localhost:3000/en or http://localhost:3000/ar.
+
+The web template adds optional API_INTERNAL_URL (server-only upstream; defaults to NEXT_PUBLIC_API_URL) and SITE_ORIGIN (the real production HTTPS origin). Leave SITE_ORIGIN blank locally: the site remains noindex and does not emit localhost canonical URLs. Do not replace current local configuration with template database port 5433. Set the actual origin before deployment, rebuild, and inspect metadata/robots/sitemap. See [local SEO](LOCAL_SEO.md).
+
+Super Admin controls publication, verified hours, and approved services through the existing branch editor. Branch Admin can edit permitted business text for assigned branches. Unknown services/hours remain empty; no extra live branches are created. See [branch management](BRANCH_MANAGEMENT.md). pnpm test:browser builds first, reuses or starts missing local app servers, and runs Chrome plus an isolated production-mode SEO/publication fixture. Docker must already be healthy.
+
+## Phase 4 Academy startup (PowerShell)
+
+Preserve existing environment files, PostgreSQL **55432**, Redis **6381**, and administrator edits. API and worker default to the same private repository .local/media directory. The worker loads its optional apps/worker/.env first, then fills missing settings from the existing apps/api/.env; process environment values take priority. No credentials need to be copied or replaced. Use an absolute MEDIA_STORAGE_ROOT when configuring another location.
+
+```powershell
+Set-Location C:\Users\pc\gulf-pharmacy-platform
+pnpm install --frozen-lockfile
+ffmpeg -version
+ffprobe -version
+pnpm db:up
+pnpm db:migrate
+pnpm db:seed
+pnpm dev
+```
+
+pnpm db:up starts PostgreSQL and Redis using the preserved infra/.env. pnpm dev starts web, API and the dedicated worker. If FFmpeg is missing, install it with winget install --id Gyan.FFmpeg --exact --accept-package-agreements --accept-source-agreements and open a new PowerShell terminal. Existing binaries can instead be selected with absolute FFMPEG_PATH and FFPROBE_PATH variables.
+
+To start each application in its own PowerShell terminal:
+
+```powershell
+# Terminal 1
+pnpm dev:api
+# Terminal 2
+pnpm dev:web
+# Terminal 3
+pnpm dev:worker
+```
+
+For compiled local execution, first run pnpm build, then in separate terminals run pnpm --filter @gulf/api exec node dist/main.js, pnpm --filter @gulf/web start, and pnpm start:worker. Stop each application with Ctrl+C. pnpm db:down stops local services without removing volumes or private media.
+
+Open http://localhost:3000/en/health-academy, http://localhost:3000/ar/health-academy or http://localhost:3000/admin/videos. Provision actual pharmacists/reviewers through Staff & access, assign branch memberships, and assign an independent reviewer to each video. Existing administrators do not automatically become medical reviewers. See [Academy](HEALTH_ACADEMY.md), [storage configuration](VIDEO_STORAGE.md) and [review rules](MEDICAL_REVIEW.md).

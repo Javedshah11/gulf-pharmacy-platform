@@ -32,12 +32,24 @@ export const branches = pgTable(
     isPublished: boolean('is_published').notNull().default(false),
     descriptionEn: text('description_en').notNull().default(''),
     descriptionAr: text('description_ar').notNull().default(''),
-    contactNameEn: varchar('contact_name_en', { length: 160 }).notNull().default(''),
-    contactNameAr: varchar('contact_name_ar', { length: 160 }).notNull().default(''),
+    contactNameEn: varchar('contact_name_en', { length: 160 })
+      .notNull()
+      .default(''),
+    contactNameAr: varchar('contact_name_ar', { length: 160 })
+      .notNull()
+      .default(''),
     postalCode: varchar('postal_code', { length: 20 }).notNull().default(''),
-    openingHours: jsonb('opening_hours').$type<OpeningPeriod[]>().notNull().default([]),
-    services: jsonb('services').$type<ApprovedService[]>().notNull().default([]),
-    publicUpdatedAt: timestamp('public_updated_at', { withTimezone: true }).notNull().defaultNow(),
+    openingHours: jsonb('opening_hours')
+      .$type<OpeningPeriod[]>()
+      .notNull()
+      .default([]),
+    services: jsonb('services')
+      .$type<ApprovedService[]>()
+      .notNull()
+      .default([]),
+    publicUpdatedAt: timestamp('public_updated_at', { withTimezone: true })
+      .notNull()
+      .defaultNow(),
     createdAt: timestamp('created_at', { withTimezone: true })
       .notNull()
       .defaultNow(),
@@ -48,7 +60,10 @@ export const branches = pgTable(
   },
   (t) => [
     index('branches_publication_idx').on(t.isActive, t.isPublished),
-    check('branches_content_arrays', sql`jsonb_typeof(${t.openingHours}) = 'array' AND jsonb_typeof(${t.services}) = 'array'`),
+    check(
+      'branches_content_arrays',
+      sql`jsonb_typeof(${t.openingHours}) = 'array' AND jsonb_typeof(${t.services}) = 'array'`,
+    ),
     check('branches_slug_format', sql`${t.slug} ~ '^[a-z0-9]+(-[a-z0-9]+)*$'`),
     check('branches_country_format', sql`${t.country} ~ '^[A-Z]{2}$'`),
     check(

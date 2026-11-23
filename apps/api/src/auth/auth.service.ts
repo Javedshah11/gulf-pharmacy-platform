@@ -71,7 +71,12 @@ export class AuthService {
       !user ||
       !valid ||
       !user.isActive ||
-      !['SUPER_ADMIN', 'BRANCH_ADMIN'].includes(user.role)
+      ![
+        'SUPER_ADMIN',
+        'BRANCH_ADMIN',
+        'PHARMACIST',
+        'MEDICAL_REVIEWER',
+      ].includes(user.role)
     ) {
       await this.database.db
         .insert(adminAuditLogs)
@@ -119,7 +124,15 @@ export class AuthService {
         ),
       )
       .limit(1);
-    if (!row || !['SUPER_ADMIN', 'BRANCH_ADMIN'].includes(row.user.role))
+    if (
+      !row ||
+      ![
+        'SUPER_ADMIN',
+        'BRANCH_ADMIN',
+        'PHARMACIST',
+        'MEDICAL_REVIEWER',
+      ].includes(row.user.role)
+    )
       throw new UnauthorizedException('Session expired or revoked');
     return {
       user: profile(row.user),

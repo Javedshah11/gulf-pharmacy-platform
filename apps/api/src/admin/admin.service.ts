@@ -126,17 +126,52 @@ export class AdminService {
       await this.branchAccess(tx, user, id);
       if (!Object.keys(dto).length)
         throw new BadRequestException('No changes supplied');
-      if ((dto.isPublished !== undefined || dto.openingHours !== undefined || dto.services !== undefined) && user.role !== 'SUPER_ADMIN') throw new ForbiddenException('Publication, verified hours, and approved services require a Super Admin');
-      if (dto.openingHours && (new Set(dto.openingHours.map(period => period.day)).size !== dto.openingHours.length || dto.openingHours.some(period => period.opens === period.closes))) throw new BadRequestException('Use one distinct opening period per day, with different opening and closing times');
-      if (dto.services && new Set(dto.services.map(service => service.nameEn.toLowerCase())).size !== dto.services.length) throw new BadRequestException('Service names must be unique');
-      const optionalText = new Set(['descriptionEn', 'descriptionAr', 'contactNameEn', 'contactNameAr', 'postalCode']);
-      const contentText = Object.entries(dto).filter(([key]) => !['isPublished', 'openingHours', 'services'].includes(key));
+      if (
+        (dto.isPublished !== undefined ||
+          dto.openingHours !== undefined ||
+          dto.services !== undefined) &&
+        user.role !== 'SUPER_ADMIN'
+      )
+        throw new ForbiddenException(
+          'Publication, verified hours, and approved services require a Super Admin',
+        );
+      if (
+        dto.openingHours &&
+        (new Set(dto.openingHours.map((period) => period.day)).size !==
+          dto.openingHours.length ||
+          dto.openingHours.some((period) => period.opens === period.closes))
+      )
+        throw new BadRequestException(
+          'Use one distinct opening period per day, with different opening and closing times',
+        );
+      if (
+        dto.services &&
+        new Set(dto.services.map((service) => service.nameEn.toLowerCase()))
+          .size !== dto.services.length
+      )
+        throw new BadRequestException('Service names must be unique');
+      const optionalText = new Set([
+        'descriptionEn',
+        'descriptionAr',
+        'contactNameEn',
+        'contactNameAr',
+        'postalCode',
+      ]);
+      const contentText = Object.entries(dto).filter(
+        ([key]) => !['isPublished', 'openingHours', 'services'].includes(key),
+      );
       for (const [key, value] of contentText) {
         if (
           typeof value !== 'string' ||
           (!optionalText.has(key) && !value.trim()) ||
           [...value].some(
-            (char) => char.charCodeAt(0) < 32 || char.charCodeAt(0) === 127,
+            (char) =>
+              (char.charCodeAt(0) < 32 &&
+                !(
+                  (key === 'descriptionEn' || key === 'descriptionAr') &&
+                  [10, 13].includes(char.charCodeAt(0))
+                )) ||
+              char.charCodeAt(0) === 127,
           )
         )
           throw new BadRequestException(
@@ -211,7 +246,7 @@ export class AdminService {
       .where(eq(staffUsers.id, id))
       .for('update');
     if (!user) throw new NotFoundException('Staff member not found');
-    if (user.role !== 'BRANCH_ADMIN')
+    if (!['BRANCH_ADMIN', 'PHARMACIST', 'MEDICAL_REVIEWER'].includes(user.role))
       throw new ForbiddenException('This account cannot be modified here');
     return user;
   }

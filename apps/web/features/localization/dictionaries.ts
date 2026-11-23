@@ -1,41 +1,241 @@
 import type { Locale } from '@/lib/utils/locale';
 const en = {
-  home: 'Home', branches: 'Our branches', about: 'About us', contact: 'Contact', language: 'العربية', switchLanguage: 'Switch to Arabic', skip: 'Skip to content',
-  slogan: 'Your Health. Our Priority.', heroTitle: 'Care starts with', heroAccent: 'a familiar place.', heroIntro: 'Welcome to Gulf Pharmacy. Find your local branch, connect with our team, and plan your visit with confidence.', heroEyebrow: 'GULF PHARMACY · صيدلية الخليج',
-  findBranch: 'Find your branch', whatsapp: 'Chat on WhatsApp', directions: 'Get directions', call: 'Call the branch', details: 'Branch details', visit: 'PLAN YOUR VISIT',
-  localTitle: 'Close to home. Easy to reach.', localIntro: 'Find the address, contact details, and published information for your Gulf Pharmacy branch.', allBranches: 'Explore our branches',
-  aboutEyebrow: 'A LOCAL CONNECTION', aboutTitle: 'Your neighbourhood. Your pharmacy.', aboutIntro: 'Gulf Pharmacy brings a local point of contact to your neighbourhood. We make it straightforward to find our branches and speak directly with the team before your visit.', aboutMore: 'Get to know Gulf Pharmacy',
-  servicesEyebrow: 'BEFORE YOU VISIT', servicesTitle: 'A conversation is a good place to start.', servicesIntro: 'Speak with the branch team about the services you need. Published services are listed on each branch profile when confirmed.', serviceEmpty: 'Contact the branch to confirm available services before your visit.', approvedServices: 'Services at this branch',
-  educationEyebrow: 'HEALTH EDUCATION', educationTitle: 'Good questions deserve clear conversations.', educationIntro: 'Have a question about looking after your health? Contact your local pharmacy team for a conversation. Educational resources will be shared here when available.', educationLink: 'Speak with your branch',
-  contactEyebrow: 'LET’S CONNECT', contactTitle: 'A direct line to your local pharmacy.', contactIntro: 'Choose a branch to call, send a WhatsApp message, or get directions. Please contact the branch directly to confirm any details before travelling.',
-  directoryTitle: 'Find your Gulf Pharmacy.', directoryIntro: 'Search by branch name, city, or neighbourhood. Choose the location that works for you.', search: 'Search branches', searchPlaceholder: 'Branch, district, or city', searchButton: 'Find a branch', clearSearch: 'Clear search', results: 'branches found', noResults: 'No matching branches', noResultsIntro: 'Try a different branch name, district, or city.', noBranches: 'Branch details are not available right now.',
-  apiError: 'We couldn’t load branch information. Please try again in a moment.', retry: 'Try again', unknownBranch: 'Branch not found', notFound: 'We couldn’t find that page.', notFoundIntro: 'The page may have moved, or the branch may not be published.', backHome: 'Return to the homepage',
-  branchEyebrow: 'YOUR LOCAL GULF PHARMACY', address: 'Address', phone: 'Phone', branchContact: 'Branch contact', hours: 'Opening hours', hoursEmpty: 'Please contact the branch to confirm opening hours.', hoursNote: 'Only confirmed days are shown. Contact the branch for other days or special dates.', overnight: 'Closes the following day', profileTitle: 'About this branch', fallback: 'This information is currently available in English.',
-  privacy: 'Privacy', terms: 'Website information', staff: 'Staff sign in', footerIntro: 'Find your branch. Speak with our team. Plan your visit.', footerCopyright: 'Gulf Pharmacy. All rights reserved.', footerNote: 'For current services and opening hours, please contact your branch.',
-  aboutPageTitle: 'A local pharmacy. A direct connection.', aboutPageIntro: 'Gulf Pharmacy is here to make connecting with your neighbourhood pharmacy simple. Our website brings together published branch details, directions, and direct contact options in English and Arabic.', aboutPrinciple1: 'Clear branch information', aboutPrinciple1Text: 'Find the address and contact details you need before you visit.', aboutPrinciple2: 'A conversation with the team', aboutPrinciple2Text: 'Call or message your chosen branch directly to ask about your visit.', aboutPrinciple3: 'English and Arabic', aboutPrinciple3Text: 'Explore the same branch information in the language that suits you.',
-  privacyTitle: 'Your privacy on this website', privacyIntro: 'You can browse public branch pages without creating an account or providing a phone number.', privacyBody: 'This website does not collect customer contact details through public forms and does not send automatic promotional messages. Staff sign-in uses a protected session cookie. Basic technical request information may be processed to operate and secure the website. WhatsApp and Google Maps are external services: when you open those links, their own terms and privacy settings apply. Contact your branch by telephone if you have questions about how a conversation is handled.',
-  termsTitle: 'Information for your visit', termsIntro: 'This website provides business contact information and directions for published Gulf Pharmacy branches.', termsBody: 'Branch information can change. Confirm opening hours and services with the branch before travelling. The website does not show live medicine stock, accept prescriptions, or provide individual medical advice. For personal health questions, speak with an appropriately qualified healthcare professional. External contact and map services are provided by their respective operators.',
-  homeMeta: 'Find Gulf Pharmacy branches, verified contact details, WhatsApp, and directions. Your Health. Our Priority.', branchesMeta: 'Find your Gulf Pharmacy branch by name, district, or city. View published addresses, phone numbers, WhatsApp contacts, and directions.', aboutMeta: 'Get to know Gulf Pharmacy and connect directly with your neighbourhood branch in English or Arabic.', contactMeta: 'Contact Gulf Pharmacy branches by phone or WhatsApp and get directions for your visit.',
+  home: 'Home',
+  branches: 'Our branches',
+  about: 'About us',
+  contact: 'Contact',
+  language: 'العربية',
+  switchLanguage: 'Switch to Arabic',
+  skip: 'Skip to content',
+  slogan: 'Your Health. Our Priority.',
+  heroTitle: 'Care starts with',
+  heroAccent: 'a familiar place.',
+  heroIntro:
+    'Welcome to Gulf Pharmacy. Find your local branch, connect with our team, and plan your visit with confidence.',
+  heroEyebrow: 'GULF PHARMACY · صيدلية الخليج',
+  findBranch: 'Find your branch',
+  whatsapp: 'Chat on WhatsApp',
+  directions: 'Get directions',
+  call: 'Call the branch',
+  details: 'Branch details',
+  visit: 'PLAN YOUR VISIT',
+  localTitle: 'Close to home. Easy to reach.',
+  localIntro:
+    'Find the address, contact details, and published information for your Gulf Pharmacy branch.',
+  allBranches: 'Explore our branches',
+  aboutEyebrow: 'A LOCAL CONNECTION',
+  aboutTitle: 'Your neighbourhood. Your pharmacy.',
+  aboutIntro:
+    'Gulf Pharmacy brings a local point of contact to your neighbourhood. We make it straightforward to find our branches and speak directly with the team before your visit.',
+  aboutMore: 'Get to know Gulf Pharmacy',
+  servicesEyebrow: 'BEFORE YOU VISIT',
+  servicesTitle: 'A conversation is a good place to start.',
+  servicesIntro:
+    'Speak with the branch team about the services you need. Published services are listed on each branch profile when confirmed.',
+  serviceEmpty:
+    'Contact the branch to confirm available services before your visit.',
+  approvedServices: 'Services at this branch',
+  educationEyebrow: 'HEALTH EDUCATION',
+  educationTitle: 'Good questions deserve clear conversations.',
+  educationIntro:
+    'Have a question about looking after your health? Contact your local pharmacy team for a conversation. Educational resources will be shared here when available.',
+  educationLink: 'Speak with your branch',
+  contactEyebrow: 'LET’S CONNECT',
+  contactTitle: 'A direct line to your local pharmacy.',
+  contactIntro:
+    'Choose a branch to call, send a WhatsApp message, or get directions. Please contact the branch directly to confirm any details before travelling.',
+  directoryTitle: 'Find your Gulf Pharmacy.',
+  directoryIntro:
+    'Search by branch name, city, or neighbourhood. Choose the location that works for you.',
+  search: 'Search branches',
+  searchPlaceholder: 'Branch, district, or city',
+  searchButton: 'Find a branch',
+  clearSearch: 'Clear search',
+  results: 'Matching branches',
+  noResults: 'No matching branches',
+  noResultsIntro: 'Try a different branch name, district, or city.',
+  noBranches: 'Branch details are not available right now.',
+  apiError:
+    'We couldn’t load branch information. Please try again in a moment.',
+  retry: 'Try again',
+  unknownBranch: 'Branch not found',
+  notFound: 'We couldn’t find that page.',
+  notFoundIntro: 'The page may have moved, or the branch may not be published.',
+  backHome: 'Return to the homepage',
+  branchEyebrow: 'YOUR LOCAL GULF PHARMACY',
+  address: 'Address',
+  phone: 'Phone',
+  branchContact: 'Branch contact',
+  hours: 'Opening hours',
+  hoursEmpty: 'Please contact the branch to confirm opening hours.',
+  hoursNote:
+    'Only confirmed days are shown. Contact the branch for other days or special dates.',
+  overnight: 'Closes the following day',
+  profileTitle: 'About this branch',
+  fallback: 'This information is shown in the available language.',
+  privacy: 'Privacy',
+  terms: 'Website information',
+  staff: 'Staff sign in',
+  footerIntro: 'Find your branch. Speak with our team. Plan your visit.',
+  footerCopyright: 'Gulf Pharmacy. All rights reserved.',
+  footerNote:
+    'For current services and opening hours, please contact your branch.',
+  aboutPageTitle: 'A local pharmacy. A direct connection.',
+  aboutPageIntro:
+    'Gulf Pharmacy is here to make connecting with your neighbourhood pharmacy simple. Our website brings together published branch details, directions, and direct contact options in English and Arabic.',
+  aboutPrinciple1: 'Clear branch information',
+  aboutPrinciple1Text:
+    'Find the address and contact details you need before you visit.',
+  aboutPrinciple2: 'A conversation with the team',
+  aboutPrinciple2Text:
+    'Call or message your chosen branch directly to ask about your visit.',
+  aboutPrinciple3: 'English and Arabic',
+  aboutPrinciple3Text:
+    'Explore the same branch information in the language that suits you.',
+  privacyTitle: 'Your privacy on this website',
+  privacyIntro:
+    'You can browse public branch pages without creating an account or providing a phone number.',
+  privacyBody:
+    'This website does not collect customer contact details through public forms and does not send automatic promotional messages. Staff sign-in uses a protected session cookie. Basic technical request information may be processed to operate and secure the website. WhatsApp and Google Maps are external services: when you open those links, their own terms and privacy settings apply. Contact your branch by telephone if you have questions about how a conversation is handled.',
+  termsTitle: 'Information for your visit',
+  termsIntro:
+    'This website provides business contact information and directions for published Gulf Pharmacy branches.',
+  termsBody:
+    'Branch information can change. Confirm opening hours and services with the branch before travelling. The website does not show live medicine stock, accept prescriptions, or provide individual medical advice. For personal health questions, speak with an appropriately qualified healthcare professional. External contact and map services are provided by their respective operators.',
+  homeMeta:
+    'Find Gulf Pharmacy branches, verified contact details, WhatsApp, and directions. Your Health. Our Priority.',
+  branchesMeta:
+    'Find your Gulf Pharmacy branch by name, district, or city. View published addresses, phone numbers, WhatsApp contacts, and directions.',
+  aboutMeta:
+    'Get to know Gulf Pharmacy and connect directly with your neighbourhood branch in English or Arabic.',
+  contactMeta:
+    'Contact Gulf Pharmacy branches by phone or WhatsApp and get directions for your visit.',
 };
 const ar: Record<keyof typeof en, string> = {
-  home: 'الرئيسية', branches: 'فروعنا', about: 'من نحن', contact: 'تواصل معنا', language: 'English', switchLanguage: 'التبديل إلى الإنجليزية', skip: 'الانتقال إلى المحتوى',
-  slogan: 'صحتكم. أولويتنا.', heroTitle: 'العناية تبدأ', heroAccent: 'من مكان تعرفونه.', heroIntro: 'مرحبًا بكم في صيدلية الخليج. ابحثوا عن فرعكم، وتواصلوا مع فريقنا، وخططوا لزيارتكم بكل اطمئنان.', heroEyebrow: 'صيدلية الخليج · GULF PHARMACY',
-  findBranch: 'ابحثوا عن فرعكم', whatsapp: 'تواصل عبر واتساب', directions: 'عرض الاتجاهات', call: 'اتصلوا بالفرع', details: 'تفاصيل الفرع', visit: 'خططوا لزيارتكم',
-  localTitle: 'قريبون منكم. ويسهل الوصول إلينا.', localIntro: 'اعثروا على العنوان وبيانات التواصل والمعلومات المنشورة لفرع صيدلية الخليج.', allBranches: 'استكشفوا فروعنا',
-  aboutEyebrow: 'تواصل قريب منكم', aboutTitle: 'حيّكم. وصيدليتكم.', aboutIntro: 'توفر صيدلية الخليج نقطة تواصل قريبة في حيّكم. نسهل عليكم العثور على فروعنا والتحدث مباشرة مع الفريق قبل الزيارة.', aboutMore: 'تعرفوا على صيدلية الخليج',
-  servicesEyebrow: 'قبل الزيارة', servicesTitle: 'الحوار بداية جيدة.', servicesIntro: 'تحدثوا مع فريق الفرع حول الخدمات التي تحتاجونها. تُعرض الخدمات في صفحة كل فرع بعد تأكيدها.', serviceEmpty: 'تواصلوا مع الفرع للتأكد من الخدمات المتاحة قبل زيارتكم.', approvedServices: 'خدمات هذا الفرع',
-  educationEyebrow: 'التثقيف الصحي', educationTitle: 'أسئلتكم تستحق حوارًا واضحًا.', educationIntro: 'لديكم سؤال حول العناية بصحتكم؟ تواصلوا مع فريق صيدليتكم للحوار. سنشارك المواد التثقيفية هنا عند توفرها.', educationLink: 'تحدثوا مع فرعكم',
-  contactEyebrow: 'نسعد بتواصلكم', contactTitle: 'تواصل مباشر مع صيدليتكم.', contactIntro: 'اختاروا فرعًا للاتصال أو إرسال رسالة واتساب أو الحصول على الاتجاهات. يرجى تأكيد التفاصيل مع الفرع قبل التوجه إليه.',
-  directoryTitle: 'اعثروا على صيدلية الخليج الأقرب لكم.', directoryIntro: 'ابحثوا باسم الفرع أو المدينة أو الحي، واختاروا الموقع المناسب لكم.', search: 'البحث عن الفروع', searchPlaceholder: 'الفرع أو الحي أو المدينة', searchButton: 'البحث عن فرع', clearSearch: 'مسح البحث', results: 'فروع مطابقة', noResults: 'لا توجد فروع مطابقة', noResultsIntro: 'جربوا اسم فرع أو حي أو مدينة أخرى.', noBranches: 'بيانات الفروع غير متاحة حاليًا.',
-  apiError: 'تعذر تحميل بيانات الفروع. يرجى المحاولة مرة أخرى بعد قليل.', retry: 'إعادة المحاولة', unknownBranch: 'الفرع غير موجود', notFound: 'تعذر العثور على هذه الصفحة.', notFoundIntro: 'قد تكون الصفحة قد انتقلت أو أن الفرع غير منشور.', backHome: 'العودة إلى الصفحة الرئيسية',
-  branchEyebrow: 'صيدلية الخليج في حيّكم', address: 'العنوان', phone: 'الهاتف', branchContact: 'للتواصل مع الفرع', hours: 'ساعات العمل', hoursEmpty: 'يرجى التواصل مع الفرع لتأكيد ساعات العمل.', hoursNote: 'تُعرض الأيام المؤكدة فقط. تواصلوا مع الفرع لبقية الأيام والمواعيد الخاصة.', overnight: 'الإغلاق في اليوم التالي', profileTitle: 'عن هذا الفرع', fallback: 'هذه المعلومات متاحة حاليًا بالإنجليزية.',
-  privacy: 'الخصوصية', terms: 'معلومات الموقع', staff: 'دخول الموظفين', footerIntro: 'اعثروا على فرعكم. تحدثوا مع فريقنا. وخططوا لزيارتكم.', footerCopyright: 'صيدلية الخليج. جميع الحقوق محفوظة.', footerNote: 'لمعرفة الخدمات وساعات العمل الحالية، يرجى التواصل مع فرعكم.',
-  aboutPageTitle: 'صيدلية محلية. وتواصل مباشر.', aboutPageIntro: 'نسعى في صيدلية الخليج إلى تسهيل تواصلكم مع صيدليتكم في الحي. يجمع موقعنا معلومات الفروع المنشورة والاتجاهات ووسائل التواصل المباشر بالعربية والإنجليزية.', aboutPrinciple1: 'معلومات واضحة عن الفروع', aboutPrinciple1Text: 'اعثروا على العنوان وبيانات التواصل اللازمة قبل الزيارة.', aboutPrinciple2: 'حوار مع الفريق', aboutPrinciple2Text: 'اتصلوا بفرعكم أو راسلوه مباشرة للاستفسار عن زيارتكم.', aboutPrinciple3: 'بالعربية والإنجليزية', aboutPrinciple3Text: 'تصفحوا معلومات الفروع باللغة التي تناسبكم.',
-  privacyTitle: 'خصوصيتكم على هذا الموقع', privacyIntro: 'يمكنكم تصفح صفحات الفروع العامة دون إنشاء حساب أو تقديم رقم هاتف.', privacyBody: 'لا يجمع هذا الموقع بيانات تواصل العملاء من خلال نماذج عامة، ولا يرسل رسائل ترويجية تلقائية. يستخدم دخول الموظفين ملف جلسة محميًا. قد تتم معالجة معلومات تقنية أساسية عن الطلبات لتشغيل الموقع وحمايته. واتساب وخرائط جوجل خدمتان خارجيتان؛ عند فتح روابطهما تسري شروطهما وإعدادات الخصوصية الخاصة بهما. اتصلوا بفرعكم هاتفيًا للاستفسار عن كيفية التعامل مع المحادثات.',
-  termsTitle: 'معلومات لزيارتكم', termsIntro: 'يوفر هذا الموقع معلومات التواصل التجاري والاتجاهات لفروع صيدلية الخليج المنشورة.', termsBody: 'قد تتغير معلومات الفروع. تأكدوا من ساعات العمل والخدمات بالتواصل مع الفرع قبل الزيارة. لا يعرض الموقع مخزون الأدوية المباشر، ولا يستقبل الوصفات الطبية، ولا يقدم نصائح طبية فردية. للأسئلة الصحية الشخصية، تحدثوا مع مختص رعاية صحية مؤهل. يقدم مشغلو الخدمات الخارجية خدمات التواصل والخرائط الخاصة بهم.',
-  homeMeta: 'اعثروا على فروع صيدلية الخليج وبيانات التواصل المؤكدة وروابط واتساب والاتجاهات. صحتكم. أولويتنا.', branchesMeta: 'ابحثوا عن فرع صيدلية الخليج بالاسم أو الحي أو المدينة. تصفحوا العناوين وأرقام الهاتف وواتساب والاتجاهات المنشورة.', aboutMeta: 'تعرفوا على صيدلية الخليج وتواصلوا مباشرة مع فرعكم بالعربية أو الإنجليزية.', contactMeta: 'تواصلوا مع فروع صيدلية الخليج عبر الهاتف أو واتساب واحصلوا على اتجاهات الزيارة.',
+  home: 'الرئيسية',
+  branches: 'فروعنا',
+  about: 'من نحن',
+  contact: 'تواصل معنا',
+  language: 'English',
+  switchLanguage: 'التبديل إلى الإنجليزية',
+  skip: 'الانتقال إلى المحتوى',
+  slogan: 'صحتكم. أولويتنا.',
+  heroTitle: 'العناية تبدأ',
+  heroAccent: 'من مكان تعرفونه.',
+  heroIntro:
+    'مرحبًا بكم في صيدلية الخليج. ابحثوا عن فرعكم، وتواصلوا مع فريقنا، وخططوا لزيارتكم بكل اطمئنان.',
+  heroEyebrow: 'صيدلية الخليج · GULF PHARMACY',
+  findBranch: 'ابحثوا عن فرعكم',
+  whatsapp: 'تواصل عبر واتساب',
+  directions: 'عرض الاتجاهات',
+  call: 'اتصلوا بالفرع',
+  details: 'تفاصيل الفرع',
+  visit: 'خططوا لزيارتكم',
+  localTitle: 'قريبون منكم. ويسهل الوصول إلينا.',
+  localIntro:
+    'اعثروا على العنوان وبيانات التواصل والمعلومات المنشورة لفرع صيدلية الخليج.',
+  allBranches: 'استكشفوا فروعنا',
+  aboutEyebrow: 'تواصل قريب منكم',
+  aboutTitle: 'حيّكم. وصيدليتكم.',
+  aboutIntro:
+    'توفر صيدلية الخليج نقطة تواصل قريبة في حيّكم. نسهل عليكم العثور على فروعنا والتحدث مباشرة مع الفريق قبل الزيارة.',
+  aboutMore: 'تعرفوا على صيدلية الخليج',
+  servicesEyebrow: 'قبل الزيارة',
+  servicesTitle: 'الحوار بداية جيدة.',
+  servicesIntro:
+    'تحدثوا مع فريق الفرع حول الخدمات التي تحتاجونها. تُعرض الخدمات في صفحة كل فرع بعد تأكيدها.',
+  serviceEmpty: 'تواصلوا مع الفرع للتأكد من الخدمات المتاحة قبل زيارتكم.',
+  approvedServices: 'خدمات هذا الفرع',
+  educationEyebrow: 'التثقيف الصحي',
+  educationTitle: 'أسئلتكم تستحق حوارًا واضحًا.',
+  educationIntro:
+    'لديكم سؤال حول العناية بصحتكم؟ تواصلوا مع فريق صيدليتكم للحوار. سنشارك المواد التثقيفية هنا عند توفرها.',
+  educationLink: 'تحدثوا مع فرعكم',
+  contactEyebrow: 'نسعد بتواصلكم',
+  contactTitle: 'تواصل مباشر مع صيدليتكم.',
+  contactIntro:
+    'اختاروا فرعًا للاتصال أو إرسال رسالة واتساب أو الحصول على الاتجاهات. يرجى تأكيد التفاصيل مع الفرع قبل التوجه إليه.',
+  directoryTitle: 'اعثروا على صيدلية الخليج الأقرب لكم.',
+  directoryIntro:
+    'ابحثوا باسم الفرع أو المدينة أو الحي، واختاروا الموقع المناسب لكم.',
+  search: 'البحث عن الفروع',
+  searchPlaceholder: 'الفرع أو الحي أو المدينة',
+  searchButton: 'البحث عن فرع',
+  clearSearch: 'مسح البحث',
+  results: 'الفروع المطابقة',
+  noResults: 'لا توجد فروع مطابقة',
+  noResultsIntro: 'جربوا اسم فرع أو حي أو مدينة أخرى.',
+  noBranches: 'بيانات الفروع غير متاحة حاليًا.',
+  apiError: 'تعذر تحميل بيانات الفروع. يرجى المحاولة مرة أخرى بعد قليل.',
+  retry: 'إعادة المحاولة',
+  unknownBranch: 'الفرع غير موجود',
+  notFound: 'تعذر العثور على هذه الصفحة.',
+  notFoundIntro: 'قد تكون الصفحة قد انتقلت أو أن الفرع غير منشور.',
+  backHome: 'العودة إلى الصفحة الرئيسية',
+  branchEyebrow: 'صيدلية الخليج في حيّكم',
+  address: 'العنوان',
+  phone: 'الهاتف',
+  branchContact: 'للتواصل مع الفرع',
+  hours: 'ساعات العمل',
+  hoursEmpty: 'يرجى التواصل مع الفرع لتأكيد ساعات العمل.',
+  hoursNote:
+    'تُعرض الأيام المؤكدة فقط. تواصلوا مع الفرع لبقية الأيام والمواعيد الخاصة.',
+  overnight: 'الإغلاق في اليوم التالي',
+  profileTitle: 'عن هذا الفرع',
+  fallback: 'تُعرض هذه المعلومات باللغة المتاحة.',
+  privacy: 'الخصوصية',
+  terms: 'معلومات الموقع',
+  staff: 'دخول الموظفين',
+  footerIntro: 'اعثروا على فرعكم. تحدثوا مع فريقنا. وخططوا لزيارتكم.',
+  footerCopyright: 'صيدلية الخليج. جميع الحقوق محفوظة.',
+  footerNote: 'لمعرفة الخدمات وساعات العمل الحالية، يرجى التواصل مع فرعكم.',
+  aboutPageTitle: 'صيدلية محلية. وتواصل مباشر.',
+  aboutPageIntro:
+    'نسعى في صيدلية الخليج إلى تسهيل تواصلكم مع صيدليتكم في الحي. يجمع موقعنا معلومات الفروع المنشورة والاتجاهات ووسائل التواصل المباشر بالعربية والإنجليزية.',
+  aboutPrinciple1: 'معلومات واضحة عن الفروع',
+  aboutPrinciple1Text:
+    'اعثروا على العنوان وبيانات التواصل اللازمة قبل الزيارة.',
+  aboutPrinciple2: 'حوار مع الفريق',
+  aboutPrinciple2Text: 'اتصلوا بفرعكم أو راسلوه مباشرة للاستفسار عن زيارتكم.',
+  aboutPrinciple3: 'بالعربية والإنجليزية',
+  aboutPrinciple3Text: 'تصفحوا معلومات الفروع باللغة التي تناسبكم.',
+  privacyTitle: 'خصوصيتكم على هذا الموقع',
+  privacyIntro:
+    'يمكنكم تصفح صفحات الفروع العامة دون إنشاء حساب أو تقديم رقم هاتف.',
+  privacyBody:
+    'لا يجمع هذا الموقع بيانات تواصل العملاء من خلال نماذج عامة، ولا يرسل رسائل ترويجية تلقائية. يستخدم دخول الموظفين ملف جلسة محميًا. قد تتم معالجة معلومات تقنية أساسية عن الطلبات لتشغيل الموقع وحمايته. واتساب وخرائط جوجل خدمتان خارجيتان؛ عند فتح روابطهما تسري شروطهما وإعدادات الخصوصية الخاصة بهما. اتصلوا بفرعكم هاتفيًا للاستفسار عن كيفية التعامل مع المحادثات.',
+  termsTitle: 'معلومات لزيارتكم',
+  termsIntro:
+    'يوفر هذا الموقع معلومات التواصل التجاري والاتجاهات لفروع صيدلية الخليج المنشورة.',
+  termsBody:
+    'قد تتغير معلومات الفروع. تأكدوا من ساعات العمل والخدمات بالتواصل مع الفرع قبل الزيارة. لا يعرض الموقع مخزون الأدوية المباشر، ولا يستقبل الوصفات الطبية، ولا يقدم نصائح طبية فردية. للأسئلة الصحية الشخصية، تحدثوا مع مختص رعاية صحية مؤهل. يقدم مشغلو الخدمات الخارجية خدمات التواصل والخرائط الخاصة بهم.',
+  homeMeta:
+    'اعثروا على فروع صيدلية الخليج وبيانات التواصل المؤكدة وروابط واتساب والاتجاهات. صحتكم. أولويتنا.',
+  branchesMeta:
+    'ابحثوا عن فرع صيدلية الخليج بالاسم أو الحي أو المدينة. تصفحوا العناوين وأرقام الهاتف وواتساب والاتجاهات المنشورة.',
+  aboutMeta:
+    'تعرفوا على صيدلية الخليج وتواصلوا مباشرة مع فرعكم بالعربية أو الإنجليزية.',
+  contactMeta:
+    'تواصلوا مع فروع صيدلية الخليج عبر الهاتف أو واتساب واحصلوا على اتجاهات الزيارة.',
 };
-export function dictionary(locale: Locale) { return locale === 'ar' ? ar : en; }
-export function hasLocale(value: string): value is Locale { return value === 'en' || value === 'ar'; }
-export const weekDays = { en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], ar: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'] };
-export function localized(en: string, ar: string, locale: Locale) { return (locale === 'ar' ? ar || en : en || ar).trim(); }
+export function dictionary(locale: Locale) {
+  return locale === 'ar' ? ar : en;
+}
+export function hasLocale(value: string): value is Locale {
+  return value === 'en' || value === 'ar';
+}
+export const weekDays = {
+  en: [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ],
+  ar: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+};
+export function localized(en: string, ar: string, locale: Locale) {
+  return (locale === 'ar' ? ar || en : en || ar).trim();
+}

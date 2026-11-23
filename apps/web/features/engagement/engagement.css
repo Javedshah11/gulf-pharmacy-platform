@@ -1,0 +1,253 @@
+.engagement-page {
+  padding-block: clamp(3rem, 7vw, 6rem);
+  max-width: 1050px;
+}
+.engagement-page h1 {
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.2;
+  margin-block: 1rem 1.5rem;
+}
+.engagement-eyebrow {
+  letter-spacing: 0.12em;
+  color: #08796d;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.engagement-lead {
+  font-size: 1.25rem;
+  max-width: 750px;
+  line-height: 1.8;
+}
+.engagement-copy {
+  white-space: pre-wrap;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.engagement-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+.engagement-muted {
+  color: #56726c;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.engagement-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-block: 3rem;
+}
+.engagement-tiles > a,
+.engagement-tiles > button {
+  padding: 2rem;
+  background: #dff5ec;
+  border: 1px solid #c4e0d4;
+  border-radius: 1rem;
+  text-align: start;
+  color: #063e3b;
+  font: inherit;
+  cursor: pointer;
+}
+.engagement-tiles span {
+  font-size: 2.2rem;
+}
+.engagement-tiles h2 {
+  font-size: 1.2rem;
+}
+.engagement-panel {
+  background: white;
+  padding: clamp(1.3rem, 4vw, 2.5rem);
+  border: 1px solid #d7e8df;
+  border-radius: 1rem;
+  margin-block: 2rem;
+  line-height: 1.8;
+}
+.engagement-form {
+  display: grid;
+  gap: 1.3rem;
+}
+.engagement-form > label {
+  display: grid;
+  gap: 0.5rem;
+}
+.engagement-form input:not([type='checkbox']),
+.engagement-form select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #bdd6ca;
+  border-radius: 0.5rem;
+  font: inherit;
+  background: white;
+}
+.engagement-form fieldset {
+  border: 1px solid #d7e8df;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.engagement-check {
+  display: flex !important;
+  align-items: start;
+  gap: 0.6rem;
+  margin-block: 0.7rem;
+}
+.engagement-check input {
+  margin-top: 0.45rem;
+  accent-color: #08796d;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.engagement-form button {
+  justify-self: start;
+}
+.engagement-private-link {
+  overflow-wrap: anywhere;
+  color: #08796d;
+  text-decoration: underline;
+}
+.engagement-float {
+  position: fixed;
+  z-index: 40;
+  bottom: 100px;
+  inset-inline-end: 24px;
+  background: #063e3b;
+  color: white;
+  border: 1px solid #328b79;
+  border-radius: 30px;
+  padding: 0.9rem 1.2rem;
+  box-shadow: 0 8px 32px #063e3b30;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.engagement-float span {
+  color: #b4ead0;
+  margin-inline-start: 0.6rem;
+}
+.engagement-assistant {
+  position: fixed;
+  z-index: 45;
+  bottom: 160px;
+  inset-inline-end: 24px;
+  width: min(400px, calc(100vw - 32px));
+  max-height: 65dvh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #b5d5c6;
+  background: white;
+  box-shadow: 0 15px 60px #063e3b28;
+  border-radius: 1rem;
+  overflow: hidden;
+  color: #063e3b;
+}
+.engagement-assistant header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  background: #063e3b;
+  color: white;
+  align-items: center;
+}
+.engagement-assistant header p {
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+  color: #c1e8d7;
+}
+.engagement-assistant header button {
+  background: none;
+  border: 0;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+.engagement-answer {
+  padding: 1rem 1.2rem;
+  overflow: auto;
+  line-height: 1.8;
+  font-size: 0.9rem;
+}
+.engagement-answer a {
+  color: #08796d;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+.engagement-assistant form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid #d7e8df;
+}
+.engagement-assistant form input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid #b5d5c6;
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.engagement-assistant form button {
+  background: #08796d;
+  color: white;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+.engagement-assistant footer {
+  font-size: 0.72rem;
+  padding: 0 1rem 0.8rem;
+  color: #56726c;
+}
+.engagement-feedback {
+  font: inherit;
+  font-size: 0.75rem;
+  color: #08796d;
+  border: 1px solid #c2ddcf;
+  border-radius: 1rem;
+  background: #f7faf8;
+  margin-inline-start: 0.5rem;
+  padding: 0.1rem 0.4rem;
+  cursor: pointer;
+}
+.engagement-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.engagement-badge {
+  background: #dff5ec;
+  padding: 0.4rem 0.8rem;
+  display: inline-block;
+  border-radius: 0.4rem;
+}
+@media (max-width: 720px) {
+  .engagement-tiles {
+    grid-template-columns: 1fr;
+  }
+  .engagement-float {
+    inset-inline-end: 16px;
+    bottom: 100px;
+  }
+  .engagement-assistant {
+    inset-inline-end: 16px;
+    bottom: 156px;
+    max-height: 62dvh;
+  }
+  .engagement-actions > * {
+    min-width: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .engagement-assistant,
+  .engagement-float {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}

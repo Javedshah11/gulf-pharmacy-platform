@@ -22,6 +22,20 @@
       "when": 1795376444138,
       "tag": "0002_public_branch_profiles",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795418254164,
+      "tag": "0003_young_dakota_north",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795421085066,
+      "tag": "0004_colossal_donald_blake",
+      "breakpoints": true
     }
   ]
 }

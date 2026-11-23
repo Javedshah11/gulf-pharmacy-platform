@@ -1,4 +1,5 @@
-import { createDatabase, branches } from './index';
+import { createDatabase, branches, healthVideoCategories } from './index';
+import { academyCategories } from './academy-categories';
 import { databaseUrl } from './environment';
 const branch = {
   nameEn: 'Gulf Pharmacy',
@@ -25,7 +26,13 @@ async function main() {
       .insert(branches)
       .values(branch)
       .onConflictDoNothing({ target: branches.slug });
-    console.log('Confirmed Dammam branch seeded.');
+    await db
+      .insert(healthVideoCategories)
+      .values(academyCategories)
+      .onConflictDoNothing({ target: healthVideoCategories.slug });
+    console.log(
+      'Confirmed branch and Academy categories seeded without overwriting edits.',
+    );
   } finally {
     await pool.end();
   }

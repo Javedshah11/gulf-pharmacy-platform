@@ -86,7 +86,11 @@ export function AdminProvider({ children }: { children: React.ReactNode }) {
     });
     setSession(data);
     setStatus('ready');
-    router.replace('/admin/dashboard');
+    router.replace(
+      ['PHARMACIST', 'MEDICAL_REVIEWER'].includes(data.user.role)
+        ? '/admin/videos'
+        : '/admin/dashboard',
+    );
   }
   async function logout() {
     try {

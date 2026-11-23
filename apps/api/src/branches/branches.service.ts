@@ -1,7 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import type { Branch } from '@gulf/shared';
 import { BranchesRepository } from './branches.repository';
-function publicBranch(row: Awaited<ReturnType<BranchesRepository['list']>>[number]): Branch {
+function publicBranch(
+  row: Awaited<ReturnType<BranchesRepository['list']>>[number],
+): Branch {
   return {
     id: row.id,
     nameEn: row.nameEn,
@@ -17,9 +19,14 @@ function publicBranch(row: Awaited<ReturnType<BranchesRepository['list']>>[numbe
     mapsUrl: row.mapsUrl,
     isActive: row.isActive,
     isPublished: true,
-    descriptionEn: row.descriptionEn ?? '', descriptionAr: row.descriptionAr ?? '',
-    contactNameEn: row.contactNameEn ?? '', contactNameAr: row.contactNameAr ?? '', postalCode: row.postalCode ?? '',
-    openingHours: row.openingHours ?? [], services: row.services ?? [], publicUpdatedAt: row.publicUpdatedAt?.toISOString() ?? '',
+    descriptionEn: row.descriptionEn ?? '',
+    descriptionAr: row.descriptionAr ?? '',
+    contactNameEn: row.contactNameEn ?? '',
+    contactNameAr: row.contactNameAr ?? '',
+    postalCode: row.postalCode ?? '',
+    openingHours: row.openingHours ?? [],
+    services: row.services ?? [],
+    publicUpdatedAt: row.publicUpdatedAt?.toISOString() ?? '',
   };
 }
 @Injectable()

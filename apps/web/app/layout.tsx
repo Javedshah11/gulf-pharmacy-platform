@@ -16,7 +16,11 @@ export default async function RootLayout({
 }) {
   const locale = (await headers()).get('x-gulf-locale') === 'ar' ? 'ar' : 'en';
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} data-scroll-behavior="smooth">
+    <html
+      lang={locale}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      data-scroll-behavior="smooth"
+    >
       <body>
         <a className="skip-link" href="#home">
           {locale === 'ar' ? 'الانتقال إلى المحتوى' : 'Skip to content'}

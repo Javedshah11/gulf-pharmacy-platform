@@ -692,3 +692,130 @@ html[lang='ar'] .admin-login-story h1 {
     transition: none;
   }
 }
+.admin-public-fields {
+  border-top: 1px solid #d7e6dd;
+  margin-top: 30px;
+  padding-top: 28px;
+}
+.admin-public-fields h2 {
+  font-size: 21px;
+  margin: 0 0 12px;
+}
+.admin-public-fields > p {
+  font-size: 14px;
+  color: #55716a;
+}
+.admin-public-fields h3 {
+  font-size: 17px;
+  margin: 28px 0 10px;
+}
+.admin-field textarea {
+  font: inherit;
+  font-size: 15px;
+  background: white;
+  color: #063e3b;
+  border: 1px solid #c9dbd1;
+  border-radius: 6px;
+  padding: 10px 12px;
+  width: 100%;
+  resize: vertical;
+}
+.admin-hours-editor {
+  display: grid;
+  gap: 15px;
+  margin: 25px 0;
+}
+.admin-hours-editor > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid #e4eee7;
+  padding-bottom: 12px;
+}
+.admin-hours-editor > div > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.admin-hours-editor .admin-field {
+  margin: 0;
+}
+.admin-hours-editor input[type='checkbox'] {
+  accent-color: #08796d;
+  width: 16px;
+  height: 16px;
+}
+.admin-service-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 15px;
+  align-items: center;
+}
+.admin-service-editor .admin-text-button {
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .admin-hours-editor > div {
+    grid-template-columns: 1fr 1fr;
+  }
+  .admin-hours-editor > div > label {
+    grid-column: 1/-1;
+  }
+  .admin-service-editor {
+    grid-template-columns: 1fr;
+  }
+  .admin-service-editor .admin-field {
+    margin: 0;
+  }
+  .admin-service-editor {
+    border-bottom: 1px solid #d7e6dd;
+    padding-block: 15px;
+  }
+}
+
+.video-counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 12px;
+  margin-block: 24px;
+}
+.video-counts strong {
+  display: block;
+  font-size: 2rem;
+}
+.video-counts span {
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.video-list-row {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #dae7df;
+  flex-wrap: wrap;
+}
+.video-list-row:last-child {
+  border-bottom: 0;
+}
+.video-private-preview {
+  display: block;
+  width: 100%;
+  max-height: 65vh;
+  background: #063e3b;
+  border-radius: 12px;
+  margin-block: 18px;
+}
+.video-multiline {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.admin-panel {
+  margin-block: 20px;
+}
+.admin-field input[type='file'] {
+  max-width: 100%;
+}

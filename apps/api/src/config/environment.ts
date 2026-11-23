@@ -1,3 +1,5 @@
+import { engagementConfig } from '../engagement/config';
+import { mediaConfig } from '@gulf/media';
 import 'dotenv/config';
 import { z } from 'zod';
 const schema = z.object({
@@ -29,7 +31,7 @@ export function validateEnvironment(input: NodeJS.ProcessEnv = process.env) {
     throw new Error(
       'CORS_ORIGIN must be an origin without a path or trailing slash',
     );
-  return result.data;
+  return { ...result.data, ...mediaConfig(input), ...engagementConfig(input) };
 }
 export type Environment = ReturnType<typeof validateEnvironment>;
 export const ENVIRONMENT = Symbol('ENVIRONMENT');

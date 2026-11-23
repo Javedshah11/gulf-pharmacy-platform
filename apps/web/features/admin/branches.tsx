@@ -5,6 +5,10 @@ import type { Branch } from '@gulf/shared';
 import { useAdmin, useText } from './provider';
 import { useResource } from './use-resource';
 import {
+  PublicProfileFields,
+  publicProfileChanges,
+} from './public-profile-fields';
+import {
   ConfirmDialog,
   ErrorState,
   Field,
@@ -73,6 +77,11 @@ export function BranchList({ overview = false }: { overview?: boolean }) {
                       : t('Inactive', 'غير نشط')}
                   </span>
                   <h3>{locale === 'ar' ? branch.nameAr : branch.nameEn}</h3>
+                  <span className="admin-tag">
+                    {branch.isPublished
+                      ? t('Published', 'منشور')
+                      : t('Draft', 'مسودة')}
+                  </span>
                   <p>{locale === 'ar' ? branch.addressAr : branch.addressEn}</p>
                   <span className="admin-tile-link">
                     {t('Manage branch profile', 'إدارة بيانات الفرع')}
@@ -113,9 +122,9 @@ export function BranchEditor({ id }: { id: string }) {
   const { data, error, loading, reload } = useResource<Branch>(
     '/admin/branches/' + encodeURIComponent(id),
   );
-  const { request, locale } = useAdmin();
+  const { request, locale, user } = useAdmin();
   const t = useText();
-  const [pending, setPending] = useState<Record<string, string> | null>(null);
+  const [pending, setPending] = useState<Record<string, unknown> | null>(null);
   const [busy, setBusy] = useState(false);
   const [saveError, setSaveError] = useState('');
   const [saved, setSaved] = useState(false);
@@ -153,11 +162,15 @@ export function BranchEditor({ id }: { id: string }) {
             event.preventDefault();
             setSaved(false);
             const form = new FormData(event.currentTarget);
-            const updates: Record<string, string> = {};
+            const updates: Record<string, unknown> = {};
             for (const field of fields) {
               const value = String(form.get(field.key)).trim();
               if (value !== data[field.key]) updates[field.key] = value;
             }
+            Object.assign(
+              updates,
+              publicProfileChanges(form, data, user?.role === 'SUPER_ADMIN'),
+            );
             if (!Object.keys(updates).length) {
               setSaved(true);
               return;
@@ -191,6 +204,10 @@ export function BranchEditor({ id }: { id: string }) {
               </Field>
             ))}
           </div>
+          <PublicProfileFields
+            branch={data}
+            superAdmin={user?.role === 'SUPER_ADMIN'}
+          />
           <div className="admin-form-footer">
             <p>
               {t(

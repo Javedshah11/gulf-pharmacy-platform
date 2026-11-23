@@ -27,8 +27,30 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     );
   if (!user || status !== 'ready') return <LoadingState />;
   const links = [
-    { href: '/admin/dashboard', label: t('Overview', 'نظرة عامة'), icon: '◫' },
-    { href: '/admin/branches', label: t('Branches', 'الفروع'), icon: '⌖' },
+    {
+      href: '/admin/marketing',
+      label: t('Customer engagement', 'تواصل العملاء'),
+      icon: '✦',
+    },
+    {
+      href: '/admin/videos',
+      label: t('Health Academy', 'الأكاديمية الصحية'),
+      icon: '▷',
+    },
+    ...(['SUPER_ADMIN', 'BRANCH_ADMIN'].includes(user.role)
+      ? [
+          {
+            href: '/admin/dashboard',
+            label: t('Overview', 'نظرة عامة'),
+            icon: '◫',
+          },
+          {
+            href: '/admin/branches',
+            label: t('Branches', 'الفروع'),
+            icon: '⌖',
+          },
+        ]
+      : []),
     ...(user.role === 'SUPER_ADMIN'
       ? [
           {
@@ -43,7 +65,14 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="admin-workspace">
       <aside className="admin-sidebar">
-        <Link className="admin-brand" href="/admin/dashboard">
+        <Link
+          className="admin-brand"
+          href={
+            ['PHARMACIST', 'MEDICAL_REVIEWER'].includes(user.role)
+              ? '/admin/videos'
+              : '/admin/dashboard'
+          }
+        >
           <span aria-hidden="true">✚</span>
           <div>
             Gulf Pharmacy<small lang="ar">صيدلية الخليج</small>
@@ -72,7 +101,11 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           <span className="admin-role">
             {user.role === 'SUPER_ADMIN'
               ? t('Super Admin', 'مدير عام')
-              : t('Branch Admin', 'مدير فرع')}
+              : user.role === 'PHARMACIST'
+                ? t('Pharmacist', 'صيدلي')
+                : user.role === 'MEDICAL_REVIEWER'
+                  ? t('Medical Reviewer', 'مراجع طبي')
+                  : t('Branch Admin', 'مدير فرع')}
           </span>
           <p>{t('Manage with care.', 'إدارة بعناية.')}</p>
           <Link href="/">

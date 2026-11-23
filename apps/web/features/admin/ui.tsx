@@ -1,5 +1,11 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import {
+  useEffect,
+  useRef,
+  isValidElement,
+  cloneElement,
+  type ReactElement,
+} from 'react';
 import { useText } from './provider';
 export function LoadingState() {
   const t = useText();
@@ -38,7 +44,11 @@ export function Field({
   return (
     <label className="admin-field">
       <span>{label}</span>
-      {children}
+      {isValidElement(children)
+        ? cloneElement(children as ReactElement<{ 'aria-label'?: string }>, {
+            'aria-label': label,
+          })
+        : children}
     </label>
   );
 }

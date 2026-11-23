@@ -34,7 +34,11 @@ export function SettingsPage() {
             <dd>
               {user?.role === 'SUPER_ADMIN'
                 ? t('Super Admin', 'مدير عام')
-                : t('Branch Admin', 'مدير فرع')}
+                : user?.role === 'PHARMACIST'
+                  ? t('Pharmacist', 'صيدلي')
+                  : user?.role === 'MEDICAL_REVIEWER'
+                    ? t('Medical Reviewer', 'مراجع طبي')
+                    : t('Branch Admin', 'مدير فرع')}
             </dd>
           </div>
         </dl>

@@ -6,7 +6,8 @@
     "lib": ["ES2022", "DOM"],
     "noEmit": true,
     "allowJs": true,
-    "checkJs": false
+    "checkJs": false,
+    "paths": { "@/*": ["./apps/web/*"] }
   },
   "include": ["playwright.config.ts", "tests/browser/**/*.ts"]
 }

@@ -6,5 +6,6 @@ allowBuilds:
   '@nestjs/core': true
   argon2: true
   esbuild: true
+  msgpackr-extract: false
   sharp: true
   unrs-resolver: true

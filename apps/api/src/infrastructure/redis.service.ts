@@ -48,6 +48,26 @@ export class RedisService implements OnApplicationShutdown {
     );
     return result === 1;
   }
+  async consumePublic(key: string, max: number, seconds: number) {
+    const n = await this.client.eval(
+      "local n=redis.call('INCR',KEYS[1]); if n==1 then redis.call('EXPIRE',KEYS[1],ARGV[1]) end; return n",
+      1,
+      this.ratePrefix + ':engagement:' + key,
+      seconds,
+    );
+    return Number(n) <= max;
+  }
+  async uniquePublic(key: string, seconds: number) {
+    return (
+      (await this.client.set(
+        this.ratePrefix + ':signal:' + key,
+        '1',
+        'EX',
+        seconds,
+        'NX',
+      )) === 'OK'
+    );
+  }
   async onApplicationShutdown() {
     try {
       if (this.client.status === 'ready') await this.client.quit();

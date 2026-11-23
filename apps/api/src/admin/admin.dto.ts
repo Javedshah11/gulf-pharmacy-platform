@@ -57,8 +57,14 @@ export class OpeningPeriodDto {
   @Matches(/^([01][0-9]|2[0-3]):[0-5][0-9]$/) closes!: string;
 }
 export class ApprovedServiceDto {
-  @Transform(({ value }) => typeof value === 'string' ? value.trim() : value) @IsString() @Length(1, 160) nameEn!: string;
-  @Transform(({ value }) => typeof value === 'string' ? value.trim() : value) @IsString() @Length(1, 160) nameAr!: string;
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
+  @IsString()
+  @Length(1, 160)
+  nameEn!: string;
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
+  @IsString()
+  @Length(1, 160)
+  nameAr!: string;
 }
 export class UpdateBranchDto {
   @IsOptional() @IsBoolean() isPublished?: boolean;
@@ -66,9 +72,22 @@ export class UpdateBranchDto {
   @IsOptional() @IsString() @MaxLength(2000) descriptionAr?: string;
   @IsOptional() @IsString() @MaxLength(160) contactNameEn?: string;
   @IsOptional() @IsString() @MaxLength(160) contactNameAr?: string;
-  @IsOptional() @IsString() @Matches(/^[a-zA-Z0-9 -]{0,20}$/) postalCode?: string;
-  @IsOptional() @IsArray() @ArrayMaxSize(7) @ValidateNested({ each: true }) @Type(() => OpeningPeriodDto) openingHours?: OpeningPeriodDto[];
-  @IsOptional() @IsArray() @ArrayMaxSize(12) @ValidateNested({ each: true }) @Type(() => ApprovedServiceDto) services?: ApprovedServiceDto[];
+  @IsOptional()
+  @IsString()
+  @Matches(/^[a-zA-Z0-9 -]{0,20}$/)
+  postalCode?: string;
+  @IsOptional()
+  @IsArray()
+  @ArrayMaxSize(7)
+  @ValidateNested({ each: true })
+  @Type(() => OpeningPeriodDto)
+  openingHours?: OpeningPeriodDto[];
+  @IsOptional()
+  @IsArray()
+  @ArrayMaxSize(12)
+  @ValidateNested({ each: true })
+  @Type(() => ApprovedServiceDto)
+  services?: ApprovedServiceDto[];
   @IsOptional() @IsString() @IsNotEmpty() @MaxLength(160) nameEn?: string;
   @IsOptional() @IsString() @IsNotEmpty() @MaxLength(160) nameAr?: string;
   @IsOptional() @IsString() @IsNotEmpty() @MaxLength(500) addressEn?: string;

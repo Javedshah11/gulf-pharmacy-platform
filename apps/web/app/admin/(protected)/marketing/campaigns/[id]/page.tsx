@@ -1,0 +1,8 @@
+import { ContentWorkspace } from '@/features/marketing/workspace';
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  return <ContentWorkspace kind="campaigns" id={(await params).id} />;
+}

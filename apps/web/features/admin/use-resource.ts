@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useAdmin } from './provider';
 import { messageOf } from './ui';
-export function useResource<T>(path: string) {
+export function useResource<T>(path: string | null) {
   const { request } = useAdmin();
   const latest = useRef(request);
   latest.current = request;
@@ -10,6 +10,12 @@ export function useResource<T>(path: string) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const load = useCallback(async () => {
+    if (!path) {
+      setLoading(false);
+      setData(null);
+      setError('');
+      return;
+    }
     setLoading(true);
     setError('');
     try {

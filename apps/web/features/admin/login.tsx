@@ -11,7 +11,12 @@ export function AdminLogin() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => {
-    if (user) router.replace('/admin/dashboard');
+    if (user)
+      router.replace(
+        ['PHARMACIST', 'MEDICAL_REVIEWER'].includes(user.role)
+          ? '/admin/videos'
+          : '/admin/dashboard',
+      );
   }, [user, router]);
   return (
     <main id="home" className="admin-login">

@@ -346,7 +346,10 @@ test('real PostgreSQL/Redis authentication, sessions, roles, CSRF and branch iso
         const { branches } = apiRequire('@gulf/database');
         await h.db
           .update(branches)
-          .set({ district: 'Administrator edit (test only)' })
+          .set({
+            district: 'Administrator edit (test only)',
+            isPublished: false,
+          })
           .where(eq(branches.slug, 'gulf-pharmacy-dammam'));
         await run();
         const rows = await h.db
@@ -355,6 +358,7 @@ test('real PostgreSQL/Redis authentication, sessions, roles, CSRF and branch iso
           .where(eq(branches.slug, 'gulf-pharmacy-dammam'));
         assert.equal(rows.length, 1);
         assert.equal(rows[0].district, 'Administrator edit (test only)');
+        assert.equal(rows[0].isPublished, false);
       },
     );
   } finally {

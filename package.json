@@ -12,6 +12,7 @@
     "build": "pnpm -r build",
     "lint": "eslint .",
     "typecheck": "pnpm -r typecheck && tsc --noEmit -p tsconfig.tools.json",
+    "pretypecheck": "pnpm --filter @gulf/shared build && pnpm --filter @gulf/database build && pnpm --filter @gulf/media build",
     "test": "pnpm --filter @gulf/api test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -21,7 +22,10 @@
     "db:migrate": "pnpm --filter @gulf/database migrate",
     "db:seed": "pnpm --filter @gulf/database seed",
     "auth:bootstrap": "pnpm --filter @gulf/api bootstrap",
-    "test:browser": "playwright test"
+    "pretest:browser": "pnpm build",
+    "test:browser": "playwright test",
+    "dev:worker": "pnpm --filter @gulf/worker dev",
+    "start:worker": "pnpm --filter @gulf/worker start"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

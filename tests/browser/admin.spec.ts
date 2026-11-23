@@ -63,6 +63,22 @@ test('staff sign-in, protected navigation, account management and logout', async
   expect(session?.httpOnly).toBe(true);
   expect(session?.sameSite).toBe('Strict');
   expect(await page.evaluate(() => Object.keys(localStorage).length)).toBe(0);
+  await page.goto('/admin/branches/' + workspace.branchA.id);
+  await expect(
+    page.getByRole('checkbox', {
+      name: 'Publish this branch on the public website',
+      exact: true,
+    }),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: 'test-results/admin-editor-' + info.project.name + '.png',
+    fullPage: true,
+  });
   await page.getByRole('link', { name: 'Staff & access', exact: true }).click();
   await page
     .getByLabel('Full name', { exact: true })

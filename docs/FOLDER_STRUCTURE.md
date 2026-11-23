@@ -32,9 +32,23 @@ Root configuration owns workspace membership, scripts, strict TypeScript default
 
 Extend existing branch/admin modules for authorized branch management changes. Authentication lives in the auth module and admin frontend features. Add future video, AI, and marketing capabilities as separate feature modules only when their phases are authorized. Add shared contracts only when multiple applications need them. Do not put server configuration or database imports in the browser package. Generated `dist`, `.next`, test screenshots/reports, dependencies, and local environment files are ignored.
 
+## Phase 3 additions
+
+- apps/web/app/[locale]: server-rendered English/Arabic pages and public styles. Existing admin routes stay in app/admin.
+- apps/web/features/localization: typed dictionaries, URL locale validation, and document attribute synchronization.
+- apps/web/features/contact: reusable calling/WhatsApp/maps actions, sticky mobile actions, and contact page.
+- apps/web/features/branches: public directory, profile, cards, and translated errors.
+- apps/web/features/admin/public-profile-fields.tsx: added fields inside the existing editor, with Super Admin publication/hour/service controls.
+- apps/web/lib/api/public-branches.ts: server-only anonymous, no-store public reads; existing staff clients stay separate.
+- apps/web/lib/seo: origin validation, metadata, structured data, and sitemap generation helpers.
+- apps/web/proxy.ts: derives SSR document locale from the URL.
+- apps/web/app/sitemap.ts, robots.ts, share-image/route.tsx: crawl/sharing responses.
+- packages/database/drizzle/0002_public_branch_profiles.sql: additive public business fields.
+- tests/browser/support: isolated production-mode frontend fixture.
+
 ## Created source tree
 
-Actual source files for Phases 1 and 2 are shown below. Generated outputs, dependencies, test artifacts, and ignored local environment files are omitted. Local `.env` files remain in infra, apps/api, apps/web, and packages/database.
+Actual source files for Phases 1 through 3 are shown below. Generated outputs, dependencies, ignored test screenshots, and local environment files are omitted. Existing .env files stay in infra, apps/api, apps/web, and packages/database.
 
 ```text
 gulf-pharmacy-platform/
@@ -81,12 +95,30 @@ gulf-pharmacy-platform/
 |   |   |   |-- support
 |   |   |   |   `-- harness.cjs
 |   |   |   |-- api.test.cjs
-|   |   |   `-- auth.test.cjs
+|   |   |   |-- auth.test.cjs
+|   |   |   `-- publication.test.cjs
 |   |   |-- .env.example
 |   |   |-- package.json
 |   |   `-- tsconfig.json
 |   `-- web
 |       |-- app
+|       |   |-- [locale]
+|       |   |   |-- about
+|       |   |   |   `-- page.tsx
+|       |   |   |-- branches
+|       |   |   |   |-- [slug]
+|       |   |   |   |   `-- page.tsx
+|       |   |   |   `-- page.tsx
+|       |   |   |-- contact
+|       |   |   |   `-- page.tsx
+|       |   |   |-- privacy
+|       |   |   |   `-- page.tsx
+|       |   |   |-- terms
+|       |   |   |   `-- page.tsx
+|       |   |   |-- error.tsx
+|       |   |   |-- layout.tsx
+|       |   |   |-- page.tsx
+|       |   |   `-- public.css
 |       |   |-- admin
 |       |   |   |-- (protected)
 |       |   |   |   |-- branches
@@ -105,33 +137,54 @@ gulf-pharmacy-platform/
 |       |   |   |-- admin.css
 |       |   |   |-- layout.tsx
 |       |   |   `-- page.tsx
+|       |   |-- share-image
+|       |   |   `-- route.tsx
 |       |   |-- globals.css
 |       |   |-- layout.tsx
-|       |   `-- page.tsx
+|       |   |-- not-found.tsx
+|       |   |-- page.tsx
+|       |   |-- robots.ts
+|       |   `-- sitemap.ts
 |       |-- components
 |       |   |-- layout
 |       |   |   |-- footer.tsx
 |       |   |   `-- header.tsx
 |       |   `-- ui
-|       |       `-- brand.tsx
+|       |       |-- brand.tsx
+|       |       `-- public-icons.tsx
 |       |-- features
 |       |   |-- admin
 |       |   |   |-- api.ts
 |       |   |   |-- branches.tsx
 |       |   |   |-- login.tsx
 |       |   |   |-- provider.tsx
+|       |   |   |-- public-profile-fields.tsx
 |       |   |   |-- settings.tsx
 |       |   |   |-- shell.tsx
 |       |   |   |-- staff.tsx
 |       |   |   |-- ui.tsx
 |       |   |   `-- use-resource.ts
 |       |   |-- branches
-|       |   |   `-- branch-card.tsx
-|       |   `-- home
-|       |       `-- home.tsx
+|       |   |   |-- branch-card.tsx
+|       |   |   |-- branch-profile.tsx
+|       |   |   |-- directory.tsx
+|       |   |   `-- public-state.tsx
+|       |   |-- contact
+|       |   |   |-- contact-actions.tsx
+|       |   |   `-- contact-page.tsx
+|       |   |-- home
+|       |   |   |-- home.tsx
+|       |   |   `-- information-page.tsx
+|       |   `-- localization
+|       |       |-- dictionaries.ts
+|       |       |-- document-locale.tsx
+|       |       `-- locale.ts
 |       |-- lib
 |       |   |-- api
-|       |   |   `-- branches.ts
+|       |   |   |-- branches.ts
+|       |   |   `-- public-branches.ts
+|       |   |-- seo
+|       |   |   `-- site.ts
 |       |   `-- utils
 |       |       `-- locale.ts
 |       |-- public
@@ -144,14 +197,18 @@ gulf-pharmacy-platform/
 |       |-- next.config.ts
 |       |-- package.json
 |       |-- postcss.config.mjs
+|       |-- proxy.ts
 |       `-- tsconfig.json
 |-- docs
 |   |-- ARCHITECTURE.md
 |   |-- AUTHENTICATION.md
+|   |-- BRANCH_MANAGEMENT.md
 |   |-- DEPENDENCIES.md
 |   |-- DEVELOPMENT_PHASES.md
 |   |-- FOLDER_STRUCTURE.md
+|   |-- LOCAL_SEO.md
 |   |-- PHASE_2_VALIDATION.md
+|   |-- PHASE_3_VALIDATION.md
 |   |-- SETUP.md
 |   |-- TESTING.md
 |   `-- VALIDATION.md
@@ -164,9 +221,11 @@ gulf-pharmacy-platform/
 |   |   |   |-- meta
 |   |   |   |   |-- _journal.json
 |   |   |   |   |-- 0000_snapshot.json
-|   |   |   |   `-- 0001_snapshot.json
+|   |   |   |   |-- 0001_snapshot.json
+|   |   |   |   `-- 0002_snapshot.json
 |   |   |   |-- 0000_create_branches.sql
-|   |   |   `-- 0001_staff_authentication.sql
+|   |   |   |-- 0001_staff_authentication.sql
+|   |   |   `-- 0002_public_branch_profiles.sql
 |   |   |-- src
 |   |   |   |-- environment.ts
 |   |   |   |-- index.ts
@@ -184,8 +243,12 @@ gulf-pharmacy-platform/
 |       `-- tsconfig.json
 |-- tests
 |   `-- browser
+|       |-- support
+|       |   `-- production.cjs
 |       |-- admin.spec.ts
-|       `-- public.spec.ts
+|       |-- public.spec.ts
+|       |-- publication.spec.ts
+|       `-- seo.spec.ts
 |-- .gitignore
 |-- .prettierignore
 |-- .prettierrc.json
@@ -198,3 +261,7 @@ gulf-pharmacy-platform/
 |-- tsconfig.base.json
 `-- tsconfig.tools.json
 ```
+
+## Phase 4 additions
+
+apps/worker is the dedicated media process. packages/media contains storage, configuration and processing. apps/api/src/videos owns Academy contracts/controllers/service. Public UI lives in apps/web/features/health-academy and app/[locale]/health-academy; staff UI in features/video-management and app/admin/(protected)/videos. packages/database/src/health-schema.ts and migration 0003 add Academy data without replacing the existing schema. See [detailed tree](HEALTH_ACADEMY.md).

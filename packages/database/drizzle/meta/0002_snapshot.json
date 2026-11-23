@@ -85,12 +85,8 @@
           "name": "admin_audit_logs_actor_id_staff_users_id_fk",
           "tableFrom": "admin_audit_logs",
           "tableTo": "staff_users",
-          "columnsFrom": [
-            "actor_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["actor_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -181,12 +177,8 @@
           "name": "auth_sessions_user_id_staff_users_id_fk",
           "tableFrom": "auth_sessions",
           "tableTo": "staff_users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -196,9 +188,7 @@
         "auth_sessions_token_hash_unique": {
           "name": "auth_sessions_token_hash_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "token_hash"
-          ]
+          "columns": ["token_hash"]
         }
       },
       "policies": {},
@@ -256,12 +246,8 @@
           "name": "branch_memberships_user_id_staff_users_id_fk",
           "tableFrom": "branch_memberships",
           "tableTo": "staff_users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -269,12 +255,8 @@
           "name": "branch_memberships_branch_id_branches_id_fk",
           "tableFrom": "branch_memberships",
           "tableTo": "branches",
-          "columnsFrom": [
-            "branch_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["branch_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -282,10 +264,7 @@
       "compositePrimaryKeys": {
         "branch_memberships_user_id_branch_id_pk": {
           "name": "branch_memberships_user_id_branch_id_pk",
-          "columns": [
-            "user_id",
-            "branch_id"
-          ]
+          "columns": ["user_id", "branch_id"]
         }
       },
       "uniqueConstraints": {},
@@ -485,9 +464,7 @@
         "branches_slug_unique": {
           "name": "branches_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "policies": {},
@@ -576,9 +553,7 @@
         "staff_users_username_unique": {
           "name": "staff_users_username_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "username"
-          ]
+          "columns": ["username"]
         }
       },
       "policies": {},

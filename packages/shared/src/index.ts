@@ -22,9 +22,17 @@ export interface Branch {
   services: ApprovedService[];
   publicUpdatedAt: string;
 }
-export interface OpeningPeriod { day: number; opens: string; closes: string; }
-export interface ApprovedService { nameEn: string; nameAr: string; }
+export interface OpeningPeriod {
+  day: number;
+  opens: string;
+  closes: string;
+}
+export interface ApprovedService {
+  nameEn: string;
+  nameAr: string;
+}
 export const PRIMARY_BRANCH_SLUG = 'gulf-pharmacy-dammam';
+export * from './videos';
 export type StaffRole =
   'SUPER_ADMIN' | 'BRANCH_ADMIN' | 'PHARMACIST' | 'MEDICAL_REVIEWER';
 export interface StaffProfile {
@@ -38,3 +46,5 @@ export interface StaffAccount extends StaffProfile {
   createdAt: string;
   branchIds: string[];
 }
+
+export * from './engagement';

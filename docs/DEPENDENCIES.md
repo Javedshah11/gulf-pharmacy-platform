@@ -2,6 +2,8 @@
 
 Exact dependency resolutions are committed in `pnpm-lock.yaml`. `pnpm list -r --depth 0` prints the current direct graph.
 
+Phase 3 adds no external dependencies. The database package now depends on the existing lightweight shared workspace for structured service/hour contracts. Existing Next.js, NestJS, Drizzle, fonts, and Playwright are reused.
+
 Phase 2 additions: **argon2 0.45.2** (API runtime), **@types/express 5.0.6** (API development), and **@playwright/test 1.65.1** (root development/browser automation). Existing framework versions remain Next.js 16.4.6 and NestJS 12.6.0. Native Argon2 installation is explicitly approved through the pnpm build allowlist. No second frontend or backend application was added.
 
 | Workspace        | Direct dependencies installed                                                                                                                                                                                |
@@ -16,3 +18,7 @@ Phase 2 additions: **argon2 0.45.2** (API runtime), **@types/express 5.0.6** (AP
 | Shared           | No runtime dependencies                                                                                                                                                                                      |
 
 Node 24.19 meets the installed framework runtime requirements. See the official [Next.js installation requirements](https://nextjs.org/docs/app/getting-started/installation) and [NestJS version requirements](https://docs.nestjs.com/migration-guide). TypeScript 5.9 compiles this hand-configured project; Nest CLI/schematics are not installed or needed.
+
+## Phase 4 media dependencies
+
+BullMQ 6.7.8 supplies the Redis job queue; FFmpeg/FFprobe are external local binaries (FFmpeg 9.0 tested). apps/worker uses TypeScript/tsx and dotenv. packages/media shares storage and processing with API/test infrastructure. No paid media/AI service is required. msgpackr-extract native optional builds are explicitly disabled; the queue uses its JavaScript fallback. See [media setup](VIDEO_STORAGE.md).
